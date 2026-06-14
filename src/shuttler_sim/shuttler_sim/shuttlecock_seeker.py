@@ -26,7 +26,7 @@ GOAL_UPDATE_DIST = 0.3   # m — ignore new target if within this of current goa
 DETECTION_TIMEOUT = 1.0  # s
 
 BATCH_SIZE = 5    # shuttlecocks to collect before heading to a gather point
-TOTAL_TARGET = 30  # stop after this many have been deposited (demo: 6 batches of 5)
+TOTAL_TARGET = 10  # stop after this many have been deposited (scoop demo: 2 batches of 5)
 
 # Ignore detections near gather points - these are already-deposited
 # shuttlecocks, not new ones to collect.

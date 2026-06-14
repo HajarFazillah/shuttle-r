@@ -33,6 +33,7 @@ setup(
             'shuttlecock_chaser = shuttler_sim.shuttlecock_chaser:main',
             'shuttlecock_seeker = shuttler_sim.shuttlecock_seeker:main',
             'shuttlecock_collector = shuttler_sim.shuttlecock_collector:main',
+            'scoop_follower = shuttler_sim.scoop_follower:main',
         ],
     },
 )

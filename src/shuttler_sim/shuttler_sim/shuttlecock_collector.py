@@ -8,9 +8,30 @@ from rclpy.node import Node
 from geometry_msgs.msg import PoseWithCovarianceStamped
 from std_msgs.msg import Int32
 
-COLLECTION_RADIUS = 0.8  # m — distance from robot center to "pick up" a shuttlecock
-STORAGE_Z = -2.0         # m — hide onboard (collected, not yet deposited) shuttlecocks
 WORLD_NAME = 'empty_court'
+
+# Passive scoop + hopper bin, tracked every cycle by scoop_follower.py to
+# stay rigidly attached to the robot (local offsets in the base_link frame:
+# x = forward, y = left, z = up). Shared with scoop_follower.py.
+SCOOP_OFFSET = (0.28, 0.0, 0.05)
+HOPPER_OFFSET = (-0.05, 0.0, 0.30)
+
+# A shuttlecock is captured once it's within this radius of the scoop's
+# tracked position.
+CAPTURE_RADIUS = 0.40  # m
+
+# Slots (local x, y offsets from HOPPER_OFFSET) where onboard shuttlecocks
+# are placed inside the hopper bin. Must have >= BATCH_SIZE entries. z offset
+# drops them onto the hopper floor (HOPPER_OFFSET z is the bin's center).
+HOPPER_SLOTS = [(-0.05, -0.05), (-0.05, 0.05), (0.0, -0.05), (0.0, 0.05), (0.05, 0.0)]
+HOPPER_SLOT_Z = -0.02
+
+DROPOFF_RADIUS = 0.6      # m
+# Deposit grid is centered on the gather point. dropoff_zone_* markers are
+# 1.2x1.2m squares (0.6m half-size), so a 5x5 grid at 0.2m spacing spans 0.8m
+# (0.4m half-span), keeping every deposited shuttlecock inside the blue zone.
+DEPOSIT_GRID_SPACING = 0.2  # m
+DEPOSIT_GRID_COLS = 5
 
 # Gather/drop-off points — one at each corner of the court, matching the
 # dropoff_zone_* markers in worlds/empty_court.sdf. The robot deposits at
@@ -21,12 +42,6 @@ GATHER_POINTS = [
     (-7.3, 4.3),   # NW corner
     (-7.3, -4.3),  # SW corner
 ]
-DROPOFF_RADIUS = 0.6      # m
-# Deposit grid is centered on the gather point. dropoff_zone_* markers are
-# 1.2x1.2m squares (0.6m half-size), so a 5x5 grid at 0.2m spacing spans 0.8m
-# (0.4m half-span), keeping every deposited shuttlecock inside the blue zone.
-DEPOSIT_GRID_SPACING = 0.2  # m
-DEPOSIT_GRID_COLS = 5
 
 # Shuttlecock positions as placed in worlds/empty_court.sdf
 SHUTTLECOCKS = {
@@ -40,54 +55,18 @@ SHUTTLECOCKS = {
     'shuttlecock_8': (-4.5, 1.2),
     'shuttlecock_9': (-1.5, -1.5),
     'shuttlecock_10': (-5.5, -0.3),
-    'shuttlecock_11': (-5.7, -2.4),
-    'shuttlecock_12': (-4.9, -2.8),
-    'shuttlecock_13': (-2.9, -2.4),
-    'shuttlecock_14': (-2.1, -2.8),
-    'shuttlecock_15': (-0.3, -2.4),
-    'shuttlecock_16': (0.3, -2.8),
-    'shuttlecock_17': (2.1, -2.4),
-    'shuttlecock_18': (2.9, -2.8),
-    'shuttlecock_19': (4.9, -2.4),
-    'shuttlecock_20': (5.7, -2.8),
-    'shuttlecock_21': (-6.3, -0.8),
-    'shuttlecock_22': (-4.3, -1.2),
-    'shuttlecock_23': (-3.1, -1.0),
-    'shuttlecock_24': (-1.5, -1.2),
-    'shuttlecock_25': (-0.9, -0.8),
-    'shuttlecock_26': (0.9, -1.2),
-    'shuttlecock_27': (1.5, -0.8),
-    'shuttlecock_28': (3.5, -1.2),
-    'shuttlecock_29': (4.3, -0.8),
-    'shuttlecock_30': (6.3, -1.2),
-    'shuttlecock_31': (-5.7, 1.2),
-    'shuttlecock_32': (-4.9, 0.8),
-    'shuttlecock_33': (-2.9, 1.2),
-    'shuttlecock_34': (-2.1, 0.8),
-    'shuttlecock_35': (-0.3, 1.2),
-    'shuttlecock_36': (0.3, 0.8),
-    'shuttlecock_37': (2.1, 1.2),
-    'shuttlecock_38': (2.9, 0.8),
-    'shuttlecock_39': (4.9, 1.2),
-    'shuttlecock_40': (5.7, 0.8),
-    'shuttlecock_41': (-6.3, 2.8),
-    'shuttlecock_42': (-4.3, 2.4),
-    'shuttlecock_43': (-3.5, 2.8),
-    'shuttlecock_44': (-1.5, 2.4),
-    'shuttlecock_45': (-0.9, 2.8),
-    'shuttlecock_46': (0.9, 2.4),
-    'shuttlecock_47': (1.5, 2.8),
-    'shuttlecock_48': (3.5, 2.4),
-    'shuttlecock_49': (4.3, 2.8),
-    'shuttlecock_50': (6.3, 2.4),
 }
+
+
+def yaw_from_quaternion(q):
+    return math.atan2(2.0 * (q.w * q.z + q.x * q.y), 1.0 - 2.0 * (q.y * q.y + q.z * q.z))
 
 
 class ShuttlecockCollector(Node):
 
     def __init__(self):
         super().__init__('shuttlecock_collector')
-        self.robot_pose = None
+        self.robot_pose = None  # (x, y, yaw)
         self.collected = set()  # all shuttlecocks ever picked up
         self.onboard = []       # collected but not yet deposited
         self.deposited = 0      # total deposited across all corners
@@ -101,47 +80,68 @@ class ShuttlecockCollector(Node):
 
         self.create_timer(0.5, self.check_collection)
         self.create_timer(0.5, self.check_dropoff)
+        self.create_timer(0.1, self.track_onboard)
         self.get_logger().info(
             f'Shuttlecock collector started, tracking {len(SHUTTLECOCKS)} shuttlecocks')
 
     def pose_callback(self, msg):
-        self.robot_pose = (msg.pose.pose.position.x, msg.pose.pose.position.y)
+        yaw = yaw_from_quaternion(msg.pose.pose.orientation)
+        self.robot_pose = (msg.pose.pose.position.x, msg.pose.pose.position.y, yaw)
 
-    def check_collection(self):
-        if self.robot_pose is None:
-            return
-
-        rx, ry = self.robot_pose
-        for name, (sx, sy) in SHUTTLECOCKS.items():
-            if name in self.collected:
-                continue
-            if math.hypot(sx - rx, sy - ry) <= COLLECTION_RADIUS:
-                self.collect(name)
-
-    def check_dropoff(self):
-        if self.robot_pose is None or not self.onboard:
-            return
-
-        rx, ry = self.robot_pose
-        for gx, gy in GATHER_POINTS:
-            if math.hypot(gx - rx, gy - ry) <= DROPOFF_RADIUS:
-                self.deposit_all((gx, gy))
-                return
-
-    def collect(self, name):
-        sx, sy = SHUTTLECOCKS[name]
+    def teleport(self, name, x, y, z):
         result = subprocess.run(
             [
                 'ign', 'service', '-s', f'/world/{WORLD_NAME}/set_pose',
                 '--reqtype', 'ignition.msgs.Pose',
                 '--reptype', 'ignition.msgs.Boolean',
                 '--timeout', '2000',
-                '-r', f'name: "{name}", position: {{x: {sx}, y: {sy}, z: {STORAGE_Z}}}',
+                '-r', f'name: "{name}", position: {{x: {x}, y: {y}, z: {z}}}',
             ],
             capture_output=True, text=True,
         )
+        return 'true' in result.stdout, result
 
-        if 'true' not in result.stdout:
+    def scoop_position(self, rx, ry, yaw):
+        dx, dy, _ = SCOOP_OFFSET
+        return (rx + dx * math.cos(yaw) - dy * math.sin(yaw),
+                ry + dx * math.sin(yaw) + dy * math.cos(yaw))
+
+    def hopper_slot_position(self, rx, ry, yaw, slot_index):
+        hx, hy, hz = HOPPER_OFFSET
+        sx, sy = HOPPER_SLOTS[slot_index % len(HOPPER_SLOTS)]
+        local_x, local_y = hx + sx, hy + sy
+        wx = rx + local_x * math.cos(yaw) - local_y * math.sin(yaw)
+        wy = ry + local_x * math.sin(yaw) + local_y * math.cos(yaw)
+        return wx, wy, hz + HOPPER_SLOT_Z
+
+    def check_collection(self):
+        if self.robot_pose is None:
+            return
+
+        rx, ry, yaw = self.robot_pose
+        scoop_x, scoop_y = self.scoop_position(rx, ry, yaw)
+        for name, (sx, sy) in SHUTTLECOCKS.items():
+            if name in self.collected:
+                continue
+            if math.hypot(sx - scoop_x, sy - scoop_y) <= CAPTURE_RADIUS:
+                self.collect(name)
+
+    def check_dropoff(self):
+        if self.robot_pose is None or not self.onboard:
+            return
+
+        rx, ry, _ = self.robot_pose
+        for gx, gy in GATHER_POINTS:
+            if math.hypot(gx - rx, gy - ry) <= DROPOFF_RADIUS:
+                self.deposit_all((gx, gy))
+                return
+
+    def collect(self, name):
+        rx, ry, yaw = self.robot_pose
+        x, y, z = self.hopper_slot_position(rx, ry, yaw, len(self.onboard))
+        ok, result = self.teleport(name, x, y, z)
+
+        if not ok:
             self.get_logger().warn(f'Failed to collect {name}: {result.stdout} {result.stderr}')
             return
 
@@ -157,6 +157,16 @@ class ShuttlecockCollector(Node):
         if len(self.collected) == len(SHUTTLECOCKS):
             self.get_logger().info('All shuttlecocks collected!')
 
+    def track_onboard(self):
+        """Keep onboard shuttlecocks riding in the hopper as the robot moves."""
+        if self.robot_pose is None or not self.onboard:
+            return
+
+        rx, ry, yaw = self.robot_pose
+        for i, name in enumerate(self.onboard):
+            x, y, z = self.hopper_slot_position(rx, ry, yaw, i)
+            self.teleport(name, x, y, z)
+
     def deposit_all(self, gather_point):
         gx, gy = gather_point
         grid_half_span = (DEPOSIT_GRID_COLS - 1) * DEPOSIT_GRID_SPACING / 2.0
@@ -170,18 +180,8 @@ class ShuttlecockCollector(Node):
             x = origin_x + col * DEPOSIT_GRID_SPACING
             y = origin_y + row * DEPOSIT_GRID_SPACING
 
-            result = subprocess.run(
-                [
-                    'ign', 'service', '-s', f'/world/{WORLD_NAME}/set_pose',
-                    '--reqtype', 'ignition.msgs.Pose',
-                    '--reptype', 'ignition.msgs.Boolean',
-                    '--timeout', '2000',
-                    '-r', f'name: "{name}", position: {{x: {x}, y: {y}, z: 0.0}}',
-                ],
-                capture_output=True, text=True,
-            )
-
-            if 'true' not in result.stdout:
+            ok, result = self.teleport(name, x, y, 0.0)
+            if not ok:
                 self.get_logger().warn(f'Failed to deposit {name}: {result.stdout} {result.stderr}')
                 continue
 

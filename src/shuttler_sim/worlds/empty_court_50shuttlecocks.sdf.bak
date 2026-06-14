@@ -1,0 +1,2076 @@
+<?xml version="1.0" ?>
+<sdf version="1.9">
+    <world name="empty_court">
+        <physics name="default_physics" type="ignored">
+            <max_step_size>0.001</max_step_size>
+            <real_time_factor>1</real_time_factor>
+        </physics>
+
+        <model name="ground_plane">
+            <static>true</static>
+            <link name="link">
+                <collision name="collision">
+                    <geometry>
+                        <plane>
+                            <normal>0 0 1</normal>
+                            <size>16 10</size>
+                        </plane>
+                    </geometry>
+                </collision>
+                <visual name="visual">
+                    <geometry>
+                        <plane>
+                            <normal>0 0 1</normal>
+                            <size>16 10</size>
+                        </plane>
+                    </geometry>
+                    <material>
+                        <ambient>0.0 0.275 0.165 1</ambient>
+                        <diffuse>0.0 0.275 0.165 1</diffuse>
+                    </material>
+                </visual>
+            </link>
+        </model>
+
+        <scene>
+            <ambient>0.6 0.6 0.6 1</ambient>
+            <background>0.2 0.2 0.2 1</background>
+            <shadows>true</shadows>
+        </scene>
+
+        <light type="directional" name="sun">
+            <cast_shadows>true</cast_shadows>
+            <pose>0 0 10 0 0 0</pose>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.2 0.2 0.2 1</specular>
+            <direction>-0.5 0.1 -1</direction>
+        </light>
+
+        <!-- Court line thickness -->
+        <!-- thickness = 0.05m, height = 0.02m -->
+
+        <!-- Outer doubles sidelines -->
+        <model name="left_doubles_sideline">
+            <static>true</static>
+            <pose>0 3.05 0.001 0 0 0</pose>
+            <link name="link">
+                <visual name="visual">
+                    <geometry>
+                        <box>
+                            <size>13.4 0.05 0.001</size>
+                        </box>
+                    </geometry>
+                    <material>
+                        <diffuse>1 1 1 1</diffuse>
+                    </material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="right_doubles_sideline">
+            <static>true</static>
+            <pose>0 -3.05 0.001 0 0 0</pose>
+            <link name="link">
+                <visual name="visual">
+                    <geometry>
+                        <box>
+                            <size>13.4 0.05 0.001</size>
+                        </box>
+                    </geometry>
+                    <material>
+                        <diffuse>1 1 1 1</diffuse>
+                    </material>
+                </visual>
+            </link>
+        </model>
+
+        <!-- Outer back boundaries -->
+        <model name="top_back_boundary">
+            <static>true</static>
+            <pose>6.7 0 0.001 0 0 0</pose>
+            <link name="link">
+                <visual name="visual">
+                    <geometry>
+                        <box>
+                            <size>0.05 6.1 0.001</size>
+                        </box>
+                    </geometry>
+                    <material>
+                        <diffuse>1 1 1 1</diffuse>
+                    </material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="bottom_back_boundary">
+            <static>true</static>
+            <pose>-6.7 0 0.001 0 0 0</pose>
+            <link name="link">
+                <visual name="visual">
+                    <geometry>
+                        <box>
+                            <size>0.05 6.1 0.001</size>
+                        </box>
+                    </geometry>
+                    <material>
+                        <diffuse>1 1 1 1</diffuse>
+                    </material>
+                </visual>
+            </link>
+        </model>
+
+        <!-- Inner singles sidelines -->
+        <model name="left_singles_sideline">
+            <static>true</static>
+            <pose>0 2.59 0.001 0 0 0</pose>
+            <link name="link">
+                <visual name="visual">
+                    <geometry>
+                        <box>
+                            <size>13.4 0.05 0.001</size>
+                        </box>
+                    </geometry>
+                    <material>
+                        <diffuse>1 1 1 1</diffuse>
+                    </material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="right_singles_sideline">
+            <static>true</static>
+            <pose>0 -2.59 0.001 0 0 0</pose>
+            <link name="link">
+                <visual name="visual">
+                    <geometry>
+                        <box>
+                            <size>13.4 0.05 0.001</size>
+                        </box>
+                    </geometry>
+                    <material>
+                        <diffuse>1 1 1 1</diffuse>
+                    </material>
+                </visual>
+            </link>
+        </model>
+
+        <!-- Net line -->
+        <model name="net_line">
+            <static>true</static>
+            <pose>0 0 0.001 0 0 0</pose>
+            <link name="link">
+                <visual name="visual">
+                    <geometry>
+                        <box>
+                            <size>0.05 6.1 0.001</size>
+                        </box>
+                    </geometry>
+                    <material>
+                        <diffuse>1 1 1 1</diffuse>
+                    </material>
+                </visual>
+            </link>
+        </model>
+
+        <!-- Short service lines -->
+        <model name="top_short_service_line">
+            <static>true</static>
+            <pose>1.98 0 0.001 0 0 0</pose>
+            <link name="link">
+                <visual name="visual">
+                    <geometry>
+                        <box>
+                            <size>0.05 6.1 0.001</size>
+                        </box>
+                    </geometry>
+                    <material>
+                        <diffuse>1 1 1 1</diffuse>
+                    </material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="bottom_short_service_line">
+            <static>true</static>
+            <pose>-1.98 0 0.001 0 0 0</pose>
+            <link name="link">
+                <visual name="visual">
+                    <geometry>
+                        <box>
+                            <size>0.05 6.1 0.001</size>
+                        </box>
+                    </geometry>
+                    <material>
+                        <diffuse>1 1 1 1</diffuse>
+                    </material>
+                </visual>
+            </link>
+        </model>
+
+        <!-- Long service lines for doubles -->
+        <model name="top_long_service_line">
+            <static>true</static>
+            <pose>5.94 0 0.001 0 0 0</pose>
+            <link name="link">
+                <visual name="visual">
+                    <geometry>
+                        <box>
+                            <size>0.05 6.1 0.001</size>
+                        </box>
+                    </geometry>
+                    <material>
+                        <diffuse>1 1 1 1</diffuse>
+                    </material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="bottom_long_service_line">
+            <static>true</static>
+            <pose>-5.94 0 0.001 0 0 0</pose>
+            <link name="link">
+                <visual name="visual">
+                    <geometry>
+                        <box>
+                            <size>0.05 6.1 0.001</size>
+                        </box>
+                    </geometry>
+                    <material>
+                        <diffuse>1 1 1 1</diffuse>
+                    </material>
+                </visual>
+            </link>
+        </model>
+
+        <!-- Net poles -->
+        <model name="net_pole_left">
+            <static>true</static>
+            <pose>0 3.05 0.775 0 0 0</pose>
+            <link name="link">
+                <visual name="visual">
+                    <geometry>
+                        <cylinder>
+                            <radius>0.025</radius>
+                            <length>1.55</length>
+                        </cylinder>
+                    </geometry>
+                    <material>
+                        <diffuse>0.8 0.8 0.8 1</diffuse>
+                    </material>
+                </visual>
+                <collision name="collision">
+                    <geometry>
+                        <cylinder>
+                            <radius>0.025</radius>
+                            <length>1.55</length>
+                        </cylinder>
+                    </geometry>
+                </collision>
+            </link>
+        </model>
+
+        <model name="net_pole_right">
+            <static>true</static>
+            <pose>0 -3.05 0.775 0 0 0</pose>
+            <link name="link">
+                <visual name="visual">
+                    <geometry>
+                        <cylinder>
+                            <radius>0.025</radius>
+                            <length>1.55</length>
+                        </cylinder>
+                    </geometry>
+                    <material>
+                        <diffuse>0.8 0.8 0.8 1</diffuse>
+                    </material>
+                </visual>
+                <collision name="collision">
+                    <geometry>
+                        <cylinder>
+                            <radius>0.025</radius>
+                            <length>1.55</length>
+                        </cylinder>
+                    </geometry>
+                </collision>
+            </link>
+        </model>
+
+        <!-- Net body (flat box approximation, dark mesh colour) -->
+        <model name="net_body">
+            <static>true</static>
+            <pose>0 0 1.144 0 0 0</pose>
+            <link name="link">
+                <visual name="visual">
+                    <geometry>
+                        <box>
+                            <size>0.02 6.1 0.76</size>
+                        </box>
+                    </geometry>
+                    <material>
+                        <ambient>0.1 0.1 0.1 0.8</ambient>
+                        <diffuse>0.1 0.1 0.1 0.8</diffuse>
+                    </material>
+                </visual>
+                <collision name="collision">
+                    <geometry>
+                        <box>
+                            <size>0.02 6.1 0.76</size>
+                        </box>
+                    </geometry>
+                </collision>
+            </link>
+        </model>
+
+        <!-- Center service lines, top and bottom halves -->
+        <model name="top_center_service_line">
+            <static>true</static>
+            <pose>3.96 0 0.001 0 0 0</pose>
+            <link name="link">
+                <visual name="visual">
+                    <geometry>
+                        <box>
+                            <size>3.96 0.05 0.001</size>
+                        </box>
+                    </geometry>
+                    <pose>0 0 0 0 0 0</pose>
+                    <material>
+                        <diffuse>1 1 1 1</diffuse>
+                    </material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="bottom_center_service_line">
+            <static>true</static>
+            <pose>-3.96 0 0.001 0 0 0</pose>
+            <link name="link">
+                <visual name="visual">
+                    <geometry>
+                        <box>
+                            <size>3.96 0.05 0.001</size>
+                        </box>
+                    </geometry>
+                    <pose>0 0 0 0 0 0</pose>
+                    <material>
+                        <diffuse>1 1 1 1</diffuse>
+                    </material>
+                </visual>
+            </link>
+        </model>
+
+        <!-- Boundary walls (keep robot inside the 20x20m ground plane) -->
+        <model name="wall_north">
+            <static>true</static>
+            <pose>8 0 0.25 0 0 0</pose>
+            <link name="link">
+                <visual name="visual">
+                    <geometry><box><size>0.2 10 0.5</size></box></geometry>
+                    <material><diffuse>0.6 0.6 0.6 1</diffuse></material>
+                </visual>
+                <collision name="collision">
+                    <geometry><box><size>0.2 10 0.5</size></box></geometry>
+                </collision>
+            </link>
+        </model>
+
+        <model name="wall_south">
+            <static>true</static>
+            <pose>-8 0 0.25 0 0 0</pose>
+            <link name="link">
+                <visual name="visual">
+                    <geometry><box><size>0.2 10 0.5</size></box></geometry>
+                    <material><diffuse>0.6 0.6 0.6 1</diffuse></material>
+                </visual>
+                <collision name="collision">
+                    <geometry><box><size>0.2 10 0.5</size></box></geometry>
+                </collision>
+            </link>
+        </model>
+
+        <model name="wall_east">
+            <static>true</static>
+            <pose>0 5 0.25 0 0 0</pose>
+            <link name="link">
+                <visual name="visual">
+                    <geometry><box><size>16 0.2 0.5</size></box></geometry>
+                    <material><diffuse>0.6 0.6 0.6 1</diffuse></material>
+                </visual>
+                <collision name="collision">
+                    <geometry><box><size>16 0.2 0.5</size></box></geometry>
+                </collision>
+            </link>
+        </model>
+
+        <model name="wall_west">
+            <static>true</static>
+            <pose>0 -5 0.25 0 0 0</pose>
+            <link name="link">
+                <visual name="visual">
+                    <geometry><box><size>16 0.2 0.5</size></box></geometry>
+                    <material><diffuse>0.6 0.6 0.6 1</diffuse></material>
+                </visual>
+                <collision name="collision">
+                    <geometry><box><size>16 0.2 0.5</size></box></geometry>
+                </collision>
+            </link>
+        </model>
+
+        <!-- Shuttlecocks (cork base + feather skirt approximation, 5 scattered) -->
+        <model name="shuttlecock_1">
+            <static>true</static>
+            <pose>3.0 0.8 0 0 0 0</pose>
+            <link name="link">
+                <visual name="cork">
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
+                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
+                </visual>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="shuttlecock_2">
+            <static>true</static>
+            <pose>4.5 -1.2 0 0 0 0</pose>
+            <link name="link">
+                <visual name="cork">
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
+                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
+                </visual>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="shuttlecock_3">
+            <static>true</static>
+            <pose>5.5 0.3 0 0 0 0</pose>
+            <link name="link">
+                <visual name="cork">
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
+                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
+                </visual>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="shuttlecock_4">
+            <static>true</static>
+            <pose>2.0 -1.8 0 0 0 0</pose>
+            <link name="link">
+                <visual name="cork">
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
+                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
+                </visual>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="shuttlecock_5">
+            <static>true</static>
+            <pose>4.0 1.5 0 0 0 0</pose>
+            <link name="link">
+                <visual name="cork">
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
+                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
+                </visual>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="shuttlecock_6">
+            <static>true</static>
+            <pose>-2.0 1.0 0 0 0 0</pose>
+            <link name="link">
+                <visual name="cork">
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
+                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
+                </visual>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="shuttlecock_7">
+            <static>true</static>
+            <pose>-3.5 -0.8 0 0 0 0</pose>
+            <link name="link">
+                <visual name="cork">
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
+                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
+                </visual>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="shuttlecock_8">
+            <static>true</static>
+            <pose>-4.5 1.2 0 0 0 0</pose>
+            <link name="link">
+                <visual name="cork">
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
+                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
+                </visual>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="shuttlecock_9">
+            <static>true</static>
+            <pose>-1.5 -1.5 0 0 0 0</pose>
+            <link name="link">
+                <visual name="cork">
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
+                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
+                </visual>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="shuttlecock_10">
+            <static>true</static>
+            <pose>-5.5 -0.3 0 0 0 0</pose>
+            <link name="link">
+                <visual name="cork">
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
+                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
+                </visual>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+            </link>
+        </model>
+        <model name="shuttlecock_11">
+            <static>true</static>
+            <pose>-5.7 -2.4 0 0 0 0</pose>
+            <link name="link">
+                <visual name="cork">
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
+                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
+                </visual>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="shuttlecock_12">
+            <static>true</static>
+            <pose>-4.9 -2.8 0 0 0 0</pose>
+            <link name="link">
+                <visual name="cork">
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
+                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
+                </visual>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="shuttlecock_13">
+            <static>true</static>
+            <pose>-2.9 -2.4 0 0 0 0</pose>
+            <link name="link">
+                <visual name="cork">
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
+                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
+                </visual>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="shuttlecock_14">
+            <static>true</static>
+            <pose>-2.1 -2.8 0 0 0 0</pose>
+            <link name="link">
+                <visual name="cork">
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
+                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
+                </visual>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="shuttlecock_15">
+            <static>true</static>
+            <pose>-0.3 -2.4 0 0 0 0</pose>
+            <link name="link">
+                <visual name="cork">
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
+                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
+                </visual>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="shuttlecock_16">
+            <static>true</static>
+            <pose>0.3 -2.8 0 0 0 0</pose>
+            <link name="link">
+                <visual name="cork">
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
+                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
+                </visual>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="shuttlecock_17">
+            <static>true</static>
+            <pose>2.1 -2.4 0 0 0 0</pose>
+            <link name="link">
+                <visual name="cork">
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
+                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
+                </visual>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="shuttlecock_18">
+            <static>true</static>
+            <pose>2.9 -2.8 0 0 0 0</pose>
+            <link name="link">
+                <visual name="cork">
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
+                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
+                </visual>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="shuttlecock_19">
+            <static>true</static>
+            <pose>4.9 -2.4 0 0 0 0</pose>
+            <link name="link">
+                <visual name="cork">
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
+                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
+                </visual>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="shuttlecock_20">
+            <static>true</static>
+            <pose>5.7 -2.8 0 0 0 0</pose>
+            <link name="link">
+                <visual name="cork">
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
+                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
+                </visual>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="shuttlecock_21">
+            <static>true</static>
+            <pose>-6.3 -0.8 0 0 0 0</pose>
+            <link name="link">
+                <visual name="cork">
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
+                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
+                </visual>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="shuttlecock_22">
+            <static>true</static>
+            <pose>-4.3 -1.2 0 0 0 0</pose>
+            <link name="link">
+                <visual name="cork">
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
+                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
+                </visual>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="shuttlecock_23">
+            <static>true</static>
+            <pose>-3.1 -1.0 0 0 0 0</pose>
+            <link name="link">
+                <visual name="cork">
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
+                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
+                </visual>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="shuttlecock_24">
+            <static>true</static>
+            <pose>-1.5 -1.2 0 0 0 0</pose>
+            <link name="link">
+                <visual name="cork">
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
+                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
+                </visual>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="shuttlecock_25">
+            <static>true</static>
+            <pose>-0.9 -0.8 0 0 0 0</pose>
+            <link name="link">
+                <visual name="cork">
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
+                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
+                </visual>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="shuttlecock_26">
+            <static>true</static>
+            <pose>0.9 -1.2 0 0 0 0</pose>
+            <link name="link">
+                <visual name="cork">
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
+                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
+                </visual>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="shuttlecock_27">
+            <static>true</static>
+            <pose>1.5 -0.8 0 0 0 0</pose>
+            <link name="link">
+                <visual name="cork">
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
+                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
+                </visual>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="shuttlecock_28">
+            <static>true</static>
+            <pose>3.5 -1.2 0 0 0 0</pose>
+            <link name="link">
+                <visual name="cork">
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
+                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
+                </visual>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="shuttlecock_29">
+            <static>true</static>
+            <pose>4.3 -0.8 0 0 0 0</pose>
+            <link name="link">
+                <visual name="cork">
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
+                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
+                </visual>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="shuttlecock_30">
+            <static>true</static>
+            <pose>6.3 -1.2 0 0 0 0</pose>
+            <link name="link">
+                <visual name="cork">
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
+                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
+                </visual>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="shuttlecock_31">
+            <static>true</static>
+            <pose>-5.7 1.2 0 0 0 0</pose>
+            <link name="link">
+                <visual name="cork">
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
+                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
+                </visual>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="shuttlecock_32">
+            <static>true</static>
+            <pose>-4.9 0.8 0 0 0 0</pose>
+            <link name="link">
+                <visual name="cork">
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
+                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
+                </visual>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="shuttlecock_33">
+            <static>true</static>
+            <pose>-2.9 1.2 0 0 0 0</pose>
+            <link name="link">
+                <visual name="cork">
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
+                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
+                </visual>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="shuttlecock_34">
+            <static>true</static>
+            <pose>-2.1 0.8 0 0 0 0</pose>
+            <link name="link">
+                <visual name="cork">
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
+                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
+                </visual>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="shuttlecock_35">
+            <static>true</static>
+            <pose>-0.3 1.2 0 0 0 0</pose>
+            <link name="link">
+                <visual name="cork">
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
+                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
+                </visual>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="shuttlecock_36">
+            <static>true</static>
+            <pose>0.3 0.8 0 0 0 0</pose>
+            <link name="link">
+                <visual name="cork">
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
+                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
+                </visual>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="shuttlecock_37">
+            <static>true</static>
+            <pose>2.1 1.2 0 0 0 0</pose>
+            <link name="link">
+                <visual name="cork">
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
+                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
+                </visual>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="shuttlecock_38">
+            <static>true</static>
+            <pose>2.9 0.8 0 0 0 0</pose>
+            <link name="link">
+                <visual name="cork">
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
+                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
+                </visual>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="shuttlecock_39">
+            <static>true</static>
+            <pose>4.9 1.2 0 0 0 0</pose>
+            <link name="link">
+                <visual name="cork">
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
+                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
+                </visual>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="shuttlecock_40">
+            <static>true</static>
+            <pose>5.7 0.8 0 0 0 0</pose>
+            <link name="link">
+                <visual name="cork">
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
+                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
+                </visual>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="shuttlecock_41">
+            <static>true</static>
+            <pose>-6.3 2.8 0 0 0 0</pose>
+            <link name="link">
+                <visual name="cork">
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
+                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
+                </visual>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="shuttlecock_42">
+            <static>true</static>
+            <pose>-4.3 2.4 0 0 0 0</pose>
+            <link name="link">
+                <visual name="cork">
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
+                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
+                </visual>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="shuttlecock_43">
+            <static>true</static>
+            <pose>-3.5 2.8 0 0 0 0</pose>
+            <link name="link">
+                <visual name="cork">
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
+                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
+                </visual>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="shuttlecock_44">
+            <static>true</static>
+            <pose>-1.5 2.4 0 0 0 0</pose>
+            <link name="link">
+                <visual name="cork">
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
+                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
+                </visual>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="shuttlecock_45">
+            <static>true</static>
+            <pose>-0.9 2.8 0 0 0 0</pose>
+            <link name="link">
+                <visual name="cork">
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
+                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
+                </visual>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="shuttlecock_46">
+            <static>true</static>
+            <pose>0.9 2.4 0 0 0 0</pose>
+            <link name="link">
+                <visual name="cork">
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
+                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
+                </visual>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="shuttlecock_47">
+            <static>true</static>
+            <pose>1.5 2.8 0 0 0 0</pose>
+            <link name="link">
+                <visual name="cork">
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
+                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
+                </visual>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="shuttlecock_48">
+            <static>true</static>
+            <pose>3.5 2.4 0 0 0 0</pose>
+            <link name="link">
+                <visual name="cork">
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
+                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
+                </visual>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="shuttlecock_49">
+            <static>true</static>
+            <pose>4.3 2.8 0 0 0 0</pose>
+            <link name="link">
+                <visual name="cork">
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
+                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
+                </visual>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="shuttlecock_50">
+            <static>true</static>
+            <pose>6.3 2.4 0 0 0 0</pose>
+            <link name="link">
+                <visual name="cork">
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
+                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
+                </visual>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+            </link>
+        </model>
+
+        <!-- Drop-off zones: collected shuttlecocks are deposited at the nearest corner -->
+        <model name="dropoff_zone_ne">
+            <static>true</static>
+            <pose>7.3 4.3 0.002 0 0 0</pose>
+            <link name="link">
+                <visual name="visual">
+                    <geometry><box><size>1.2 1.2 0.004</size></box></geometry>
+                    <material>
+                        <diffuse>0.1 0.3 1.0 1</diffuse>
+                        <emissive>0.1 0.3 1.0 1</emissive>
+                    </material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="dropoff_zone_se">
+            <static>true</static>
+            <pose>7.3 -4.3 0.002 0 0 0</pose>
+            <link name="link">
+                <visual name="visual">
+                    <geometry><box><size>1.2 1.2 0.004</size></box></geometry>
+                    <material>
+                        <diffuse>0.1 0.3 1.0 1</diffuse>
+                        <emissive>0.1 0.3 1.0 1</emissive>
+                    </material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="dropoff_zone_nw">
+            <static>true</static>
+            <pose>-7.3 4.3 0.002 0 0 0</pose>
+            <link name="link">
+                <visual name="visual">
+                    <geometry><box><size>1.2 1.2 0.004</size></box></geometry>
+                    <material>
+                        <diffuse>0.1 0.3 1.0 1</diffuse>
+                        <emissive>0.1 0.3 1.0 1</emissive>
+                    </material>
+                </visual>
+            </link>
+        </model>
+
+        <model name="dropoff_zone_sw">
+            <static>true</static>
+            <pose>-7.3 -4.3 0.002 0 0 0</pose>
+            <link name="link">
+                <visual name="visual">
+                    <geometry><box><size>1.2 1.2 0.004</size></box></geometry>
+                    <material>
+                        <diffuse>0.1 0.3 1.0 1</diffuse>
+                        <emissive>0.1 0.3 1.0 1</emissive>
+                    </material>
+                </visual>
+            </link>
+        </model>
+
+    </world>
+</sdf>
