@@ -421,13 +421,28 @@
             <pose>3.0 0.8 0 0 0 0</pose>
             <link name="link">
                 <visual name="cork">
-                    <pose>0 0 0.0125 0 0 0</pose>
-                    <geometry><cylinder><radius>0.013</radius><length>0.025</length></cylinder></geometry>
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
                     <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
                 </visual>
-                <visual name="skirt">
-                    <pose>0 0 0.0525 0 0 0</pose>
-                    <geometry><cylinder><radius>0.033</radius><length>0.055</length></cylinder></geometry>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
                     <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
                 </visual>
             </link>
@@ -438,13 +453,28 @@
             <pose>4.5 -1.2 0 0 0 0</pose>
             <link name="link">
                 <visual name="cork">
-                    <pose>0 0 0.0125 0 0 0</pose>
-                    <geometry><cylinder><radius>0.013</radius><length>0.025</length></cylinder></geometry>
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
                     <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
                 </visual>
-                <visual name="skirt">
-                    <pose>0 0 0.0525 0 0 0</pose>
-                    <geometry><cylinder><radius>0.033</radius><length>0.055</length></cylinder></geometry>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
                     <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
                 </visual>
             </link>
@@ -455,13 +485,28 @@
             <pose>5.5 0.3 0 0 0 0</pose>
             <link name="link">
                 <visual name="cork">
-                    <pose>0 0 0.0125 0 0 0</pose>
-                    <geometry><cylinder><radius>0.013</radius><length>0.025</length></cylinder></geometry>
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
                     <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
                 </visual>
-                <visual name="skirt">
-                    <pose>0 0 0.0525 0 0 0</pose>
-                    <geometry><cylinder><radius>0.033</radius><length>0.055</length></cylinder></geometry>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
                     <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
                 </visual>
             </link>
@@ -472,13 +517,28 @@
             <pose>2.0 -1.8 0 0 0 0</pose>
             <link name="link">
                 <visual name="cork">
-                    <pose>0 0 0.0125 0 0 0</pose>
-                    <geometry><cylinder><radius>0.013</radius><length>0.025</length></cylinder></geometry>
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
                     <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
                 </visual>
-                <visual name="skirt">
-                    <pose>0 0 0.0525 0 0 0</pose>
-                    <geometry><cylinder><radius>0.033</radius><length>0.055</length></cylinder></geometry>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
                     <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
                 </visual>
             </link>
@@ -489,13 +549,28 @@
             <pose>4.0 1.5 0 0 0 0</pose>
             <link name="link">
                 <visual name="cork">
-                    <pose>0 0 0.0125 0 0 0</pose>
-                    <geometry><cylinder><radius>0.013</radius><length>0.025</length></cylinder></geometry>
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
                     <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
                 </visual>
-                <visual name="skirt">
-                    <pose>0 0 0.0525 0 0 0</pose>
-                    <geometry><cylinder><radius>0.033</radius><length>0.055</length></cylinder></geometry>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
                     <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
                 </visual>
             </link>
@@ -506,13 +581,28 @@
             <pose>-2.0 1.0 0 0 0 0</pose>
             <link name="link">
                 <visual name="cork">
-                    <pose>0 0 0.0125 0 0 0</pose>
-                    <geometry><cylinder><radius>0.013</radius><length>0.025</length></cylinder></geometry>
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
                     <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
                 </visual>
-                <visual name="skirt">
-                    <pose>0 0 0.0525 0 0 0</pose>
-                    <geometry><cylinder><radius>0.033</radius><length>0.055</length></cylinder></geometry>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
                     <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
                 </visual>
             </link>
@@ -523,13 +613,28 @@
             <pose>-3.5 -0.8 0 0 0 0</pose>
             <link name="link">
                 <visual name="cork">
-                    <pose>0 0 0.0125 0 0 0</pose>
-                    <geometry><cylinder><radius>0.013</radius><length>0.025</length></cylinder></geometry>
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
                     <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
                 </visual>
-                <visual name="skirt">
-                    <pose>0 0 0.0525 0 0 0</pose>
-                    <geometry><cylinder><radius>0.033</radius><length>0.055</length></cylinder></geometry>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
                     <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
                 </visual>
             </link>
@@ -540,13 +645,28 @@
             <pose>-4.5 1.2 0 0 0 0</pose>
             <link name="link">
                 <visual name="cork">
-                    <pose>0 0 0.0125 0 0 0</pose>
-                    <geometry><cylinder><radius>0.013</radius><length>0.025</length></cylinder></geometry>
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
                     <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
                 </visual>
-                <visual name="skirt">
-                    <pose>0 0 0.0525 0 0 0</pose>
-                    <geometry><cylinder><radius>0.033</radius><length>0.055</length></cylinder></geometry>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
                     <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
                 </visual>
             </link>
@@ -557,13 +677,28 @@
             <pose>-1.5 -1.5 0 0 0 0</pose>
             <link name="link">
                 <visual name="cork">
-                    <pose>0 0 0.0125 0 0 0</pose>
-                    <geometry><cylinder><radius>0.013</radius><length>0.025</length></cylinder></geometry>
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
                     <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
                 </visual>
-                <visual name="skirt">
-                    <pose>0 0 0.0525 0 0 0</pose>
-                    <geometry><cylinder><radius>0.033</radius><length>0.055</length></cylinder></geometry>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
                     <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
                 </visual>
             </link>
@@ -574,13 +709,28 @@
             <pose>-5.5 -0.3 0 0 0 0</pose>
             <link name="link">
                 <visual name="cork">
-                    <pose>0 0 0.0125 0 0 0</pose>
-                    <geometry><cylinder><radius>0.013</radius><length>0.025</length></cylinder></geometry>
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
                     <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
                 </visual>
-                <visual name="skirt">
-                    <pose>0 0 0.0525 0 0 0</pose>
-                    <geometry><cylinder><radius>0.033</radius><length>0.055</length></cylinder></geometry>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
                     <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
                 </visual>
             </link>
@@ -590,13 +740,28 @@
             <pose>-5.7 -2.4 0 0 0 0</pose>
             <link name="link">
                 <visual name="cork">
-                    <pose>0 0 0.0125 0 0 0</pose>
-                    <geometry><cylinder><radius>0.013</radius><length>0.025</length></cylinder></geometry>
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
                     <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
                 </visual>
-                <visual name="skirt">
-                    <pose>0 0 0.0525 0 0 0</pose>
-                    <geometry><cylinder><radius>0.033</radius><length>0.055</length></cylinder></geometry>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
                     <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
                 </visual>
             </link>
@@ -607,13 +772,28 @@
             <pose>-4.9 -2.8 0 0 0 0</pose>
             <link name="link">
                 <visual name="cork">
-                    <pose>0 0 0.0125 0 0 0</pose>
-                    <geometry><cylinder><radius>0.013</radius><length>0.025</length></cylinder></geometry>
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
                     <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
                 </visual>
-                <visual name="skirt">
-                    <pose>0 0 0.0525 0 0 0</pose>
-                    <geometry><cylinder><radius>0.033</radius><length>0.055</length></cylinder></geometry>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
                     <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
                 </visual>
             </link>
@@ -624,13 +804,28 @@
             <pose>-2.9 -2.4 0 0 0 0</pose>
             <link name="link">
                 <visual name="cork">
-                    <pose>0 0 0.0125 0 0 0</pose>
-                    <geometry><cylinder><radius>0.013</radius><length>0.025</length></cylinder></geometry>
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
                     <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
                 </visual>
-                <visual name="skirt">
-                    <pose>0 0 0.0525 0 0 0</pose>
-                    <geometry><cylinder><radius>0.033</radius><length>0.055</length></cylinder></geometry>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
                     <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
                 </visual>
             </link>
@@ -641,13 +836,28 @@
             <pose>-2.1 -2.8 0 0 0 0</pose>
             <link name="link">
                 <visual name="cork">
-                    <pose>0 0 0.0125 0 0 0</pose>
-                    <geometry><cylinder><radius>0.013</radius><length>0.025</length></cylinder></geometry>
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
                     <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
                 </visual>
-                <visual name="skirt">
-                    <pose>0 0 0.0525 0 0 0</pose>
-                    <geometry><cylinder><radius>0.033</radius><length>0.055</length></cylinder></geometry>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
                     <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
                 </visual>
             </link>
@@ -658,13 +868,28 @@
             <pose>-0.3 -2.4 0 0 0 0</pose>
             <link name="link">
                 <visual name="cork">
-                    <pose>0 0 0.0125 0 0 0</pose>
-                    <geometry><cylinder><radius>0.013</radius><length>0.025</length></cylinder></geometry>
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
                     <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
                 </visual>
-                <visual name="skirt">
-                    <pose>0 0 0.0525 0 0 0</pose>
-                    <geometry><cylinder><radius>0.033</radius><length>0.055</length></cylinder></geometry>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
                     <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
                 </visual>
             </link>
@@ -675,13 +900,28 @@
             <pose>0.3 -2.8 0 0 0 0</pose>
             <link name="link">
                 <visual name="cork">
-                    <pose>0 0 0.0125 0 0 0</pose>
-                    <geometry><cylinder><radius>0.013</radius><length>0.025</length></cylinder></geometry>
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
                     <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
                 </visual>
-                <visual name="skirt">
-                    <pose>0 0 0.0525 0 0 0</pose>
-                    <geometry><cylinder><radius>0.033</radius><length>0.055</length></cylinder></geometry>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
                     <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
                 </visual>
             </link>
@@ -692,13 +932,28 @@
             <pose>2.1 -2.4 0 0 0 0</pose>
             <link name="link">
                 <visual name="cork">
-                    <pose>0 0 0.0125 0 0 0</pose>
-                    <geometry><cylinder><radius>0.013</radius><length>0.025</length></cylinder></geometry>
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
                     <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
                 </visual>
-                <visual name="skirt">
-                    <pose>0 0 0.0525 0 0 0</pose>
-                    <geometry><cylinder><radius>0.033</radius><length>0.055</length></cylinder></geometry>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
                     <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
                 </visual>
             </link>
@@ -709,13 +964,28 @@
             <pose>2.9 -2.8 0 0 0 0</pose>
             <link name="link">
                 <visual name="cork">
-                    <pose>0 0 0.0125 0 0 0</pose>
-                    <geometry><cylinder><radius>0.013</radius><length>0.025</length></cylinder></geometry>
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
                     <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
                 </visual>
-                <visual name="skirt">
-                    <pose>0 0 0.0525 0 0 0</pose>
-                    <geometry><cylinder><radius>0.033</radius><length>0.055</length></cylinder></geometry>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
                     <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
                 </visual>
             </link>
@@ -726,13 +996,28 @@
             <pose>4.9 -2.4 0 0 0 0</pose>
             <link name="link">
                 <visual name="cork">
-                    <pose>0 0 0.0125 0 0 0</pose>
-                    <geometry><cylinder><radius>0.013</radius><length>0.025</length></cylinder></geometry>
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
                     <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
                 </visual>
-                <visual name="skirt">
-                    <pose>0 0 0.0525 0 0 0</pose>
-                    <geometry><cylinder><radius>0.033</radius><length>0.055</length></cylinder></geometry>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
                     <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
                 </visual>
             </link>
@@ -743,13 +1028,28 @@
             <pose>5.7 -2.8 0 0 0 0</pose>
             <link name="link">
                 <visual name="cork">
-                    <pose>0 0 0.0125 0 0 0</pose>
-                    <geometry><cylinder><radius>0.013</radius><length>0.025</length></cylinder></geometry>
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
                     <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
                 </visual>
-                <visual name="skirt">
-                    <pose>0 0 0.0525 0 0 0</pose>
-                    <geometry><cylinder><radius>0.033</radius><length>0.055</length></cylinder></geometry>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
                     <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
                 </visual>
             </link>
@@ -760,13 +1060,28 @@
             <pose>-6.3 -0.8 0 0 0 0</pose>
             <link name="link">
                 <visual name="cork">
-                    <pose>0 0 0.0125 0 0 0</pose>
-                    <geometry><cylinder><radius>0.013</radius><length>0.025</length></cylinder></geometry>
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
                     <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
                 </visual>
-                <visual name="skirt">
-                    <pose>0 0 0.0525 0 0 0</pose>
-                    <geometry><cylinder><radius>0.033</radius><length>0.055</length></cylinder></geometry>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
                     <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
                 </visual>
             </link>
@@ -777,13 +1092,28 @@
             <pose>-4.3 -1.2 0 0 0 0</pose>
             <link name="link">
                 <visual name="cork">
-                    <pose>0 0 0.0125 0 0 0</pose>
-                    <geometry><cylinder><radius>0.013</radius><length>0.025</length></cylinder></geometry>
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
                     <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
                 </visual>
-                <visual name="skirt">
-                    <pose>0 0 0.0525 0 0 0</pose>
-                    <geometry><cylinder><radius>0.033</radius><length>0.055</length></cylinder></geometry>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
                     <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
                 </visual>
             </link>
@@ -794,13 +1124,28 @@
             <pose>-3.1 -1.0 0 0 0 0</pose>
             <link name="link">
                 <visual name="cork">
-                    <pose>0 0 0.0125 0 0 0</pose>
-                    <geometry><cylinder><radius>0.013</radius><length>0.025</length></cylinder></geometry>
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
                     <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
                 </visual>
-                <visual name="skirt">
-                    <pose>0 0 0.0525 0 0 0</pose>
-                    <geometry><cylinder><radius>0.033</radius><length>0.055</length></cylinder></geometry>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
                     <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
                 </visual>
             </link>
@@ -811,13 +1156,28 @@
             <pose>-1.5 -1.2 0 0 0 0</pose>
             <link name="link">
                 <visual name="cork">
-                    <pose>0 0 0.0125 0 0 0</pose>
-                    <geometry><cylinder><radius>0.013</radius><length>0.025</length></cylinder></geometry>
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
                     <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
                 </visual>
-                <visual name="skirt">
-                    <pose>0 0 0.0525 0 0 0</pose>
-                    <geometry><cylinder><radius>0.033</radius><length>0.055</length></cylinder></geometry>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
                     <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
                 </visual>
             </link>
@@ -828,13 +1188,28 @@
             <pose>-0.9 -0.8 0 0 0 0</pose>
             <link name="link">
                 <visual name="cork">
-                    <pose>0 0 0.0125 0 0 0</pose>
-                    <geometry><cylinder><radius>0.013</radius><length>0.025</length></cylinder></geometry>
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
                     <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
                 </visual>
-                <visual name="skirt">
-                    <pose>0 0 0.0525 0 0 0</pose>
-                    <geometry><cylinder><radius>0.033</radius><length>0.055</length></cylinder></geometry>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
                     <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
                 </visual>
             </link>
@@ -845,13 +1220,28 @@
             <pose>0.9 -1.2 0 0 0 0</pose>
             <link name="link">
                 <visual name="cork">
-                    <pose>0 0 0.0125 0 0 0</pose>
-                    <geometry><cylinder><radius>0.013</radius><length>0.025</length></cylinder></geometry>
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
                     <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
                 </visual>
-                <visual name="skirt">
-                    <pose>0 0 0.0525 0 0 0</pose>
-                    <geometry><cylinder><radius>0.033</radius><length>0.055</length></cylinder></geometry>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
                     <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
                 </visual>
             </link>
@@ -862,13 +1252,28 @@
             <pose>1.5 -0.8 0 0 0 0</pose>
             <link name="link">
                 <visual name="cork">
-                    <pose>0 0 0.0125 0 0 0</pose>
-                    <geometry><cylinder><radius>0.013</radius><length>0.025</length></cylinder></geometry>
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
                     <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
                 </visual>
-                <visual name="skirt">
-                    <pose>0 0 0.0525 0 0 0</pose>
-                    <geometry><cylinder><radius>0.033</radius><length>0.055</length></cylinder></geometry>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
                     <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
                 </visual>
             </link>
@@ -879,13 +1284,28 @@
             <pose>3.5 -1.2 0 0 0 0</pose>
             <link name="link">
                 <visual name="cork">
-                    <pose>0 0 0.0125 0 0 0</pose>
-                    <geometry><cylinder><radius>0.013</radius><length>0.025</length></cylinder></geometry>
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
                     <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
                 </visual>
-                <visual name="skirt">
-                    <pose>0 0 0.0525 0 0 0</pose>
-                    <geometry><cylinder><radius>0.033</radius><length>0.055</length></cylinder></geometry>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
                     <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
                 </visual>
             </link>
@@ -896,13 +1316,28 @@
             <pose>4.3 -0.8 0 0 0 0</pose>
             <link name="link">
                 <visual name="cork">
-                    <pose>0 0 0.0125 0 0 0</pose>
-                    <geometry><cylinder><radius>0.013</radius><length>0.025</length></cylinder></geometry>
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
                     <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
                 </visual>
-                <visual name="skirt">
-                    <pose>0 0 0.0525 0 0 0</pose>
-                    <geometry><cylinder><radius>0.033</radius><length>0.055</length></cylinder></geometry>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
                     <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
                 </visual>
             </link>
@@ -913,13 +1348,28 @@
             <pose>6.3 -1.2 0 0 0 0</pose>
             <link name="link">
                 <visual name="cork">
-                    <pose>0 0 0.0125 0 0 0</pose>
-                    <geometry><cylinder><radius>0.013</radius><length>0.025</length></cylinder></geometry>
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
                     <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
                 </visual>
-                <visual name="skirt">
-                    <pose>0 0 0.0525 0 0 0</pose>
-                    <geometry><cylinder><radius>0.033</radius><length>0.055</length></cylinder></geometry>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
                     <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
                 </visual>
             </link>
@@ -930,13 +1380,28 @@
             <pose>-5.7 1.2 0 0 0 0</pose>
             <link name="link">
                 <visual name="cork">
-                    <pose>0 0 0.0125 0 0 0</pose>
-                    <geometry><cylinder><radius>0.013</radius><length>0.025</length></cylinder></geometry>
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
                     <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
                 </visual>
-                <visual name="skirt">
-                    <pose>0 0 0.0525 0 0 0</pose>
-                    <geometry><cylinder><radius>0.033</radius><length>0.055</length></cylinder></geometry>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
                     <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
                 </visual>
             </link>
@@ -947,13 +1412,28 @@
             <pose>-4.9 0.8 0 0 0 0</pose>
             <link name="link">
                 <visual name="cork">
-                    <pose>0 0 0.0125 0 0 0</pose>
-                    <geometry><cylinder><radius>0.013</radius><length>0.025</length></cylinder></geometry>
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
                     <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
                 </visual>
-                <visual name="skirt">
-                    <pose>0 0 0.0525 0 0 0</pose>
-                    <geometry><cylinder><radius>0.033</radius><length>0.055</length></cylinder></geometry>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
                     <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
                 </visual>
             </link>
@@ -964,13 +1444,28 @@
             <pose>-2.9 1.2 0 0 0 0</pose>
             <link name="link">
                 <visual name="cork">
-                    <pose>0 0 0.0125 0 0 0</pose>
-                    <geometry><cylinder><radius>0.013</radius><length>0.025</length></cylinder></geometry>
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
                     <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
                 </visual>
-                <visual name="skirt">
-                    <pose>0 0 0.0525 0 0 0</pose>
-                    <geometry><cylinder><radius>0.033</radius><length>0.055</length></cylinder></geometry>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
                     <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
                 </visual>
             </link>
@@ -981,13 +1476,28 @@
             <pose>-2.1 0.8 0 0 0 0</pose>
             <link name="link">
                 <visual name="cork">
-                    <pose>0 0 0.0125 0 0 0</pose>
-                    <geometry><cylinder><radius>0.013</radius><length>0.025</length></cylinder></geometry>
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
                     <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
                 </visual>
-                <visual name="skirt">
-                    <pose>0 0 0.0525 0 0 0</pose>
-                    <geometry><cylinder><radius>0.033</radius><length>0.055</length></cylinder></geometry>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
                     <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
                 </visual>
             </link>
@@ -998,13 +1508,28 @@
             <pose>-0.3 1.2 0 0 0 0</pose>
             <link name="link">
                 <visual name="cork">
-                    <pose>0 0 0.0125 0 0 0</pose>
-                    <geometry><cylinder><radius>0.013</radius><length>0.025</length></cylinder></geometry>
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
                     <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
                 </visual>
-                <visual name="skirt">
-                    <pose>0 0 0.0525 0 0 0</pose>
-                    <geometry><cylinder><radius>0.033</radius><length>0.055</length></cylinder></geometry>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
                     <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
                 </visual>
             </link>
@@ -1015,13 +1540,28 @@
             <pose>0.3 0.8 0 0 0 0</pose>
             <link name="link">
                 <visual name="cork">
-                    <pose>0 0 0.0125 0 0 0</pose>
-                    <geometry><cylinder><radius>0.013</radius><length>0.025</length></cylinder></geometry>
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
                     <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
                 </visual>
-                <visual name="skirt">
-                    <pose>0 0 0.0525 0 0 0</pose>
-                    <geometry><cylinder><radius>0.033</radius><length>0.055</length></cylinder></geometry>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
                     <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
                 </visual>
             </link>
@@ -1032,13 +1572,28 @@
             <pose>2.1 1.2 0 0 0 0</pose>
             <link name="link">
                 <visual name="cork">
-                    <pose>0 0 0.0125 0 0 0</pose>
-                    <geometry><cylinder><radius>0.013</radius><length>0.025</length></cylinder></geometry>
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
                     <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
                 </visual>
-                <visual name="skirt">
-                    <pose>0 0 0.0525 0 0 0</pose>
-                    <geometry><cylinder><radius>0.033</radius><length>0.055</length></cylinder></geometry>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
                     <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
                 </visual>
             </link>
@@ -1049,13 +1604,28 @@
             <pose>2.9 0.8 0 0 0 0</pose>
             <link name="link">
                 <visual name="cork">
-                    <pose>0 0 0.0125 0 0 0</pose>
-                    <geometry><cylinder><radius>0.013</radius><length>0.025</length></cylinder></geometry>
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
                     <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
                 </visual>
-                <visual name="skirt">
-                    <pose>0 0 0.0525 0 0 0</pose>
-                    <geometry><cylinder><radius>0.033</radius><length>0.055</length></cylinder></geometry>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
                     <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
                 </visual>
             </link>
@@ -1066,13 +1636,28 @@
             <pose>4.9 1.2 0 0 0 0</pose>
             <link name="link">
                 <visual name="cork">
-                    <pose>0 0 0.0125 0 0 0</pose>
-                    <geometry><cylinder><radius>0.013</radius><length>0.025</length></cylinder></geometry>
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
                     <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
                 </visual>
-                <visual name="skirt">
-                    <pose>0 0 0.0525 0 0 0</pose>
-                    <geometry><cylinder><radius>0.033</radius><length>0.055</length></cylinder></geometry>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
                     <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
                 </visual>
             </link>
@@ -1083,13 +1668,28 @@
             <pose>5.7 0.8 0 0 0 0</pose>
             <link name="link">
                 <visual name="cork">
-                    <pose>0 0 0.0125 0 0 0</pose>
-                    <geometry><cylinder><radius>0.013</radius><length>0.025</length></cylinder></geometry>
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
                     <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
                 </visual>
-                <visual name="skirt">
-                    <pose>0 0 0.0525 0 0 0</pose>
-                    <geometry><cylinder><radius>0.033</radius><length>0.055</length></cylinder></geometry>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
                     <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
                 </visual>
             </link>
@@ -1100,13 +1700,28 @@
             <pose>-6.3 2.8 0 0 0 0</pose>
             <link name="link">
                 <visual name="cork">
-                    <pose>0 0 0.0125 0 0 0</pose>
-                    <geometry><cylinder><radius>0.013</radius><length>0.025</length></cylinder></geometry>
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
                     <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
                 </visual>
-                <visual name="skirt">
-                    <pose>0 0 0.0525 0 0 0</pose>
-                    <geometry><cylinder><radius>0.033</radius><length>0.055</length></cylinder></geometry>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
                     <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
                 </visual>
             </link>
@@ -1117,13 +1732,28 @@
             <pose>-4.3 2.4 0 0 0 0</pose>
             <link name="link">
                 <visual name="cork">
-                    <pose>0 0 0.0125 0 0 0</pose>
-                    <geometry><cylinder><radius>0.013</radius><length>0.025</length></cylinder></geometry>
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
                     <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
                 </visual>
-                <visual name="skirt">
-                    <pose>0 0 0.0525 0 0 0</pose>
-                    <geometry><cylinder><radius>0.033</radius><length>0.055</length></cylinder></geometry>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
                     <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
                 </visual>
             </link>
@@ -1134,13 +1764,28 @@
             <pose>-3.5 2.8 0 0 0 0</pose>
             <link name="link">
                 <visual name="cork">
-                    <pose>0 0 0.0125 0 0 0</pose>
-                    <geometry><cylinder><radius>0.013</radius><length>0.025</length></cylinder></geometry>
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
                     <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
                 </visual>
-                <visual name="skirt">
-                    <pose>0 0 0.0525 0 0 0</pose>
-                    <geometry><cylinder><radius>0.033</radius><length>0.055</length></cylinder></geometry>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
                     <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
                 </visual>
             </link>
@@ -1151,13 +1796,28 @@
             <pose>-1.5 2.4 0 0 0 0</pose>
             <link name="link">
                 <visual name="cork">
-                    <pose>0 0 0.0125 0 0 0</pose>
-                    <geometry><cylinder><radius>0.013</radius><length>0.025</length></cylinder></geometry>
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
                     <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
                 </visual>
-                <visual name="skirt">
-                    <pose>0 0 0.0525 0 0 0</pose>
-                    <geometry><cylinder><radius>0.033</radius><length>0.055</length></cylinder></geometry>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
                     <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
                 </visual>
             </link>
@@ -1168,13 +1828,28 @@
             <pose>-0.9 2.8 0 0 0 0</pose>
             <link name="link">
                 <visual name="cork">
-                    <pose>0 0 0.0125 0 0 0</pose>
-                    <geometry><cylinder><radius>0.013</radius><length>0.025</length></cylinder></geometry>
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
                     <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
                 </visual>
-                <visual name="skirt">
-                    <pose>0 0 0.0525 0 0 0</pose>
-                    <geometry><cylinder><radius>0.033</radius><length>0.055</length></cylinder></geometry>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
                     <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
                 </visual>
             </link>
@@ -1185,13 +1860,28 @@
             <pose>0.9 2.4 0 0 0 0</pose>
             <link name="link">
                 <visual name="cork">
-                    <pose>0 0 0.0125 0 0 0</pose>
-                    <geometry><cylinder><radius>0.013</radius><length>0.025</length></cylinder></geometry>
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
                     <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
                 </visual>
-                <visual name="skirt">
-                    <pose>0 0 0.0525 0 0 0</pose>
-                    <geometry><cylinder><radius>0.033</radius><length>0.055</length></cylinder></geometry>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
                     <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
                 </visual>
             </link>
@@ -1202,13 +1892,28 @@
             <pose>1.5 2.8 0 0 0 0</pose>
             <link name="link">
                 <visual name="cork">
-                    <pose>0 0 0.0125 0 0 0</pose>
-                    <geometry><cylinder><radius>0.013</radius><length>0.025</length></cylinder></geometry>
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
                     <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
                 </visual>
-                <visual name="skirt">
-                    <pose>0 0 0.0525 0 0 0</pose>
-                    <geometry><cylinder><radius>0.033</radius><length>0.055</length></cylinder></geometry>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
                     <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
                 </visual>
             </link>
@@ -1219,13 +1924,28 @@
             <pose>3.5 2.4 0 0 0 0</pose>
             <link name="link">
                 <visual name="cork">
-                    <pose>0 0 0.0125 0 0 0</pose>
-                    <geometry><cylinder><radius>0.013</radius><length>0.025</length></cylinder></geometry>
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
                     <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
                 </visual>
-                <visual name="skirt">
-                    <pose>0 0 0.0525 0 0 0</pose>
-                    <geometry><cylinder><radius>0.033</radius><length>0.055</length></cylinder></geometry>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
                     <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
                 </visual>
             </link>
@@ -1236,13 +1956,28 @@
             <pose>4.3 2.8 0 0 0 0</pose>
             <link name="link">
                 <visual name="cork">
-                    <pose>0 0 0.0125 0 0 0</pose>
-                    <geometry><cylinder><radius>0.013</radius><length>0.025</length></cylinder></geometry>
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
                     <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
                 </visual>
-                <visual name="skirt">
-                    <pose>0 0 0.0525 0 0 0</pose>
-                    <geometry><cylinder><radius>0.033</radius><length>0.055</length></cylinder></geometry>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
                     <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
                 </visual>
             </link>
@@ -1253,13 +1988,28 @@
             <pose>6.3 2.4 0 0 0 0</pose>
             <link name="link">
                 <visual name="cork">
-                    <pose>0 0 0.0125 0 0 0</pose>
-                    <geometry><cylinder><radius>0.013</radius><length>0.025</length></cylinder></geometry>
+                    <pose>0 0 0.013 0 0 0</pose>
+                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
                     <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
                 </visual>
-                <visual name="skirt">
-                    <pose>0 0 0.0525 0 0 0</pose>
-                    <geometry><cylinder><radius>0.033</radius><length>0.055</length></cylinder></geometry>
+                <visual name="skirt1">
+                    <pose>0 0 0.03188 0 0 0</pose>
+                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt2">
+                    <pose>0 0 0.04563 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt3">
+                    <pose>0 0 0.05938 0 0 0</pose>
+                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
+                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
+                </visual>
+                <visual name="skirt4">
+                    <pose>0 0 0.07313 0 0 0</pose>
+                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
                     <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
                 </visual>
             </link>
