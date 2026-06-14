@@ -1,0 +1,16 @@
+# ROS2 colcon build artifacts
+build/
+install/
+log/
+
+# Python
+__pycache__/
+*.pyc
+
+# Editor / tooling
+.vscode/
+.claude/
+
+# SLAM intermediate/backup files (keep final court_map.pgm/yaml)
+maps/court_inprogress.*
+maps/*.bak
