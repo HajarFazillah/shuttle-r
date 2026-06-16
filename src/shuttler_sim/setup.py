@@ -30,7 +30,6 @@ setup(
         'console_scripts': [
             'shuttlecock_detector = shuttler_sim.shuttlecock_detector:main',
             'teleop_keyboard = shuttler_sim.teleop_keyboard:main',
-            'shuttlecock_chaser = shuttler_sim.shuttlecock_chaser:main',
             'shuttlecock_seeker = shuttler_sim.shuttlecock_seeker:main',
             'shuttlecock_collector = shuttler_sim.shuttlecock_collector:main',
             'scoop_follower = shuttler_sim.scoop_follower:main',

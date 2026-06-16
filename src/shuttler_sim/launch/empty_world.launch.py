@@ -162,14 +162,6 @@ def generate_launch_description():
         output='screen',
     )
 
-    # Keeps the passive scoop + hopper bin rigidly attached to the robot
-    scoop_follower = Node(
-        package='shuttler_sim',
-        executable='scoop_follower',
-        name='scoop_follower',
-        output='screen',
-    )
-
     return LaunchDescription([
         ign_resource_path,
         ign_gui_plugin_path,
@@ -182,5 +174,4 @@ def generate_launch_description():
         auto_undock,
         lidar_bridge,
         shuttlecock_detector,
-        scoop_follower,
     ])

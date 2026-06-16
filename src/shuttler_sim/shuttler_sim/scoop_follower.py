@@ -1,16 +1,21 @@
 #!/usr/bin/env python3
 import math
 import subprocess
+import threading
 
 import rclpy
 from rclpy.node import Node
+from rclpy.duration import Duration
+from rclpy.time import Time
 
-from geometry_msgs.msg import PoseWithCovarianceStamped
+import tf2_ros
 
 from shuttler_sim.shuttlecock_collector import (
     WORLD_NAME, SCOOP_OFFSET, HOPPER_OFFSET, yaw_from_quaternion)
 
-UPDATE_PERIOD = 0.2  # s (5 Hz)
+UPDATE_PERIOD = 0.2  # s (5 Hz) - each set_pose call runs in a daemon thread
+# so subprocess latency doesn't block the timer; two outstanding threads per
+# cycle at most (one per entity).
 
 
 def set_pose(name, x, y, z, yaw):
@@ -36,27 +41,28 @@ class ScoopFollower(Node):
 
     def __init__(self):
         super().__init__('scoop_follower')
-        self.robot_pose = None  # (x, y, yaw)
-        self.create_subscription(
-            PoseWithCovarianceStamped, '/amcl_pose', self.pose_callback, 10)
+        self.tf_buffer = tf2_ros.Buffer()
+        self.tf_listener = tf2_ros.TransformListener(self.tf_buffer, self)
         self.create_timer(UPDATE_PERIOD, self.update)
         self.get_logger().info('Scoop follower started')
 
-    def pose_callback(self, msg):
-        yaw = yaw_from_quaternion(msg.pose.pose.orientation)
-        self.robot_pose = (msg.pose.pose.position.x, msg.pose.pose.position.y, yaw)
-
     def update(self):
-        if self.robot_pose is None:
+        try:
+            tf = self.tf_buffer.lookup_transform(
+                'map', 'base_link', Time(), timeout=Duration(seconds=2.0))
+        except tf2_ros.TransformException:
             return
-        rx, ry, yaw = self.robot_pose
+        yaw = yaw_from_quaternion(tf.transform.rotation)
+        rx, ry = tf.transform.translation.x, tf.transform.translation.y
         cos_y, sin_y = math.cos(yaw), math.sin(yaw)
 
         for name, (dx, dy, dz) in (('scoop_assembly', SCOOP_OFFSET),
                                     ('hopper_bin', HOPPER_OFFSET)):
             wx = rx + dx * cos_y - dy * sin_y
             wy = ry + dx * sin_y + dy * cos_y
-            set_pose(name, wx, wy, dz, yaw)
+            threading.Thread(
+                target=set_pose, args=(name, wx, wy, dz, yaw), daemon=True
+            ).start()
 
 
 def main(args=None):

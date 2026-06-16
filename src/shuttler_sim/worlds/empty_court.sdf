@@ -2,7 +2,7 @@
 <sdf version="1.9">
     <world name="empty_court">
         <physics name="default_physics" type="ignored">
-            <max_step_size>0.001</max_step_size>
+            <max_step_size>0.004</max_step_size>
             <real_time_factor>1</real_time_factor>
         </physics>
 
@@ -35,8 +35,16 @@
         <scene>
             <ambient>0.6 0.6 0.6 1</ambient>
             <background>0.2 0.2 0.2 1</background>
-            <shadows>true</shadows>
+            <shadows>false</shadows>
         </scene>
+
+        <!-- Initial camera preset: angled view of the NE quadrant where all
+             shuttlecocks and the deposit corner are. Orbit in Gazebo to adjust. -->
+        <gui>
+            <camera name="user_camera">
+                <pose>-2.0 -9.0 12.0 0 -0.78 1.05</pose>
+            </camera>
+        </gui>
 
         <light type="directional" name="sun">
             <cast_shadows>true</cast_shadows>
@@ -361,83 +369,65 @@
         <!-- Boundary walls (keep robot inside the 20x20m ground plane) -->
         <model name="wall_north">
             <static>true</static>
-            <pose>8 0 0.25 0 0 0</pose>
+            <pose>8 0 0.3 0 0 0</pose>
             <link name="link">
                 <visual name="visual">
-                    <geometry><box><size>0.2 10 0.5</size></box></geometry>
+                    <geometry><box><size>0.4 10 0.6</size></box></geometry>
                     <material><diffuse>0.6 0.6 0.6 1</diffuse></material>
                 </visual>
                 <collision name="collision">
-                    <geometry><box><size>0.2 10 0.5</size></box></geometry>
+                    <geometry><box><size>0.4 10 0.6</size></box></geometry>
                 </collision>
             </link>
         </model>
 
         <model name="wall_south">
             <static>true</static>
-            <pose>-8 0 0.25 0 0 0</pose>
+            <pose>-8 0 0.3 0 0 0</pose>
             <link name="link">
                 <visual name="visual">
-                    <geometry><box><size>0.2 10 0.5</size></box></geometry>
+                    <geometry><box><size>0.4 10 0.6</size></box></geometry>
                     <material><diffuse>0.6 0.6 0.6 1</diffuse></material>
                 </visual>
                 <collision name="collision">
-                    <geometry><box><size>0.2 10 0.5</size></box></geometry>
+                    <geometry><box><size>0.4 10 0.6</size></box></geometry>
                 </collision>
             </link>
         </model>
 
         <model name="wall_east">
             <static>true</static>
-            <pose>0 5 0.25 0 0 0</pose>
+            <pose>0 5 0.3 0 0 0</pose>
             <link name="link">
                 <visual name="visual">
-                    <geometry><box><size>16 0.2 0.5</size></box></geometry>
+                    <geometry><box><size>16 0.4 0.6</size></box></geometry>
                     <material><diffuse>0.6 0.6 0.6 1</diffuse></material>
                 </visual>
                 <collision name="collision">
-                    <geometry><box><size>16 0.2 0.5</size></box></geometry>
+                    <geometry><box><size>16 0.4 0.6</size></box></geometry>
                 </collision>
             </link>
         </model>
 
         <model name="wall_west">
             <static>true</static>
-            <pose>0 -5 0.25 0 0 0</pose>
+            <pose>0 -5 0.3 0 0 0</pose>
             <link name="link">
                 <visual name="visual">
-                    <geometry><box><size>16 0.2 0.5</size></box></geometry>
+                    <geometry><box><size>16 0.4 0.6</size></box></geometry>
                     <material><diffuse>0.6 0.6 0.6 1</diffuse></material>
                 </visual>
                 <collision name="collision">
-                    <geometry><box><size>16 0.2 0.5</size></box></geometry>
+                    <geometry><box><size>16 0.4 0.6</size></box></geometry>
                 </collision>
             </link>
         </model>
 
         <!-- Shuttlecocks (cork base + feather skirt approximation, 5 scattered) -->
         <model name="shuttlecock_1">
-            <static>false</static>
+            <static>true</static>
             <pose>3.0 0.8 0 0 0 0</pose>
             <link name="link">
-                <inertial>
-                    <mass>0.005</mass>
-                    <pose>0 0 0.04 0 0 0</pose>
-                    <inertia>
-                        <ixx>3.99e-06</ixx>
-                        <iyy>3.99e-06</iyy>
-                        <izz>2.64e-06</izz>
-                        <ixy>0</ixy><ixz>0</ixz><iyz>0</iyz>
-                    </inertia>
-                </inertial>
-                <collision name="collision">
-                    <pose>0 0 0.04 0 0 0</pose>
-                    <geometry><cylinder><radius>0.0325</radius><length>0.08</length></cylinder></geometry>
-                    <surface>
-                        <friction><ode><mu>1.0</mu><mu2>1.0</mu2></ode></friction>
-                        <bounce><restitution_coefficient>0</restitution_coefficient><threshold>0.01</threshold></bounce>
-                    </surface>
-                </collision>
                 <visual name="cork">
                     <pose>0 0 0.013 0 0 0</pose>
                     <geometry><sphere><radius>0.013</radius></sphere></geometry>
@@ -465,79 +455,10 @@
                 </visual>
             </link>
         </model>
-
-        <model name="shuttlecock_2">
-            <static>false</static>
-            <pose>4.5 -1.2 0 0 0 0</pose>
-            <link name="link">
-                <inertial>
-                    <mass>0.005</mass>
-                    <pose>0 0 0.04 0 0 0</pose>
-                    <inertia>
-                        <ixx>3.99e-06</ixx>
-                        <iyy>3.99e-06</iyy>
-                        <izz>2.64e-06</izz>
-                        <ixy>0</ixy><ixz>0</ixz><iyz>0</iyz>
-                    </inertia>
-                </inertial>
-                <collision name="collision">
-                    <pose>0 0 0.04 0 0 0</pose>
-                    <geometry><cylinder><radius>0.0325</radius><length>0.08</length></cylinder></geometry>
-                    <surface>
-                        <friction><ode><mu>1.0</mu><mu2>1.0</mu2></ode></friction>
-                        <bounce><restitution_coefficient>0</restitution_coefficient><threshold>0.01</threshold></bounce>
-                    </surface>
-                </collision>
-                <visual name="cork">
-                    <pose>0 0 0.013 0 0 0</pose>
-                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
-                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
-                </visual>
-                <visual name="skirt1">
-                    <pose>0 0 0.03188 0 0 0</pose>
-                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
-                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
-                </visual>
-                <visual name="skirt2">
-                    <pose>0 0 0.04563 0 0 0</pose>
-                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
-                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
-                </visual>
-                <visual name="skirt3">
-                    <pose>0 0 0.05938 0 0 0</pose>
-                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
-                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
-                </visual>
-                <visual name="skirt4">
-                    <pose>0 0 0.07313 0 0 0</pose>
-                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
-                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
-                </visual>
-            </link>
-        </model>
-
         <model name="shuttlecock_3">
-            <static>false</static>
+            <static>true</static>
             <pose>5.5 0.3 0 0 0 0</pose>
             <link name="link">
-                <inertial>
-                    <mass>0.005</mass>
-                    <pose>0 0 0.04 0 0 0</pose>
-                    <inertia>
-                        <ixx>3.99e-06</ixx>
-                        <iyy>3.99e-06</iyy>
-                        <izz>2.64e-06</izz>
-                        <ixy>0</ixy><ixz>0</ixz><iyz>0</iyz>
-                    </inertia>
-                </inertial>
-                <collision name="collision">
-                    <pose>0 0 0.04 0 0 0</pose>
-                    <geometry><cylinder><radius>0.0325</radius><length>0.08</length></cylinder></geometry>
-                    <surface>
-                        <friction><ode><mu>1.0</mu><mu2>1.0</mu2></ode></friction>
-                        <bounce><restitution_coefficient>0</restitution_coefficient><threshold>0.01</threshold></bounce>
-                    </surface>
-                </collision>
                 <visual name="cork">
                     <pose>0 0 0.013 0 0 0</pose>
                     <geometry><sphere><radius>0.013</radius></sphere></geometry>
@@ -565,79 +486,10 @@
                 </visual>
             </link>
         </model>
-
-        <model name="shuttlecock_4">
-            <static>false</static>
-            <pose>2.0 -1.8 0 0 0 0</pose>
-            <link name="link">
-                <inertial>
-                    <mass>0.005</mass>
-                    <pose>0 0 0.04 0 0 0</pose>
-                    <inertia>
-                        <ixx>3.99e-06</ixx>
-                        <iyy>3.99e-06</iyy>
-                        <izz>2.64e-06</izz>
-                        <ixy>0</ixy><ixz>0</ixz><iyz>0</iyz>
-                    </inertia>
-                </inertial>
-                <collision name="collision">
-                    <pose>0 0 0.04 0 0 0</pose>
-                    <geometry><cylinder><radius>0.0325</radius><length>0.08</length></cylinder></geometry>
-                    <surface>
-                        <friction><ode><mu>1.0</mu><mu2>1.0</mu2></ode></friction>
-                        <bounce><restitution_coefficient>0</restitution_coefficient><threshold>0.01</threshold></bounce>
-                    </surface>
-                </collision>
-                <visual name="cork">
-                    <pose>0 0 0.013 0 0 0</pose>
-                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
-                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
-                </visual>
-                <visual name="skirt1">
-                    <pose>0 0 0.03188 0 0 0</pose>
-                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
-                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
-                </visual>
-                <visual name="skirt2">
-                    <pose>0 0 0.04563 0 0 0</pose>
-                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
-                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
-                </visual>
-                <visual name="skirt3">
-                    <pose>0 0 0.05938 0 0 0</pose>
-                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
-                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
-                </visual>
-                <visual name="skirt4">
-                    <pose>0 0 0.07313 0 0 0</pose>
-                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
-                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
-                </visual>
-            </link>
-        </model>
-
         <model name="shuttlecock_5">
-            <static>false</static>
+            <static>true</static>
             <pose>4.0 1.5 0 0 0 0</pose>
             <link name="link">
-                <inertial>
-                    <mass>0.005</mass>
-                    <pose>0 0 0.04 0 0 0</pose>
-                    <inertia>
-                        <ixx>3.99e-06</ixx>
-                        <iyy>3.99e-06</iyy>
-                        <izz>2.64e-06</izz>
-                        <ixy>0</ixy><ixz>0</ixz><iyz>0</iyz>
-                    </inertia>
-                </inertial>
-                <collision name="collision">
-                    <pose>0 0 0.04 0 0 0</pose>
-                    <geometry><cylinder><radius>0.0325</radius><length>0.08</length></cylinder></geometry>
-                    <surface>
-                        <friction><ode><mu>1.0</mu><mu2>1.0</mu2></ode></friction>
-                        <bounce><restitution_coefficient>0</restitution_coefficient><threshold>0.01</threshold></bounce>
-                    </surface>
-                </collision>
                 <visual name="cork">
                     <pose>0 0 0.013 0 0 0</pose>
                     <geometry><sphere><radius>0.013</radius></sphere></geometry>
@@ -665,257 +517,6 @@
                 </visual>
             </link>
         </model>
-
-        <model name="shuttlecock_6">
-            <static>false</static>
-            <pose>-2.0 1.0 0 0 0 0</pose>
-            <link name="link">
-                <inertial>
-                    <mass>0.005</mass>
-                    <pose>0 0 0.04 0 0 0</pose>
-                    <inertia>
-                        <ixx>3.99e-06</ixx>
-                        <iyy>3.99e-06</iyy>
-                        <izz>2.64e-06</izz>
-                        <ixy>0</ixy><ixz>0</ixz><iyz>0</iyz>
-                    </inertia>
-                </inertial>
-                <collision name="collision">
-                    <pose>0 0 0.04 0 0 0</pose>
-                    <geometry><cylinder><radius>0.0325</radius><length>0.08</length></cylinder></geometry>
-                    <surface>
-                        <friction><ode><mu>1.0</mu><mu2>1.0</mu2></ode></friction>
-                        <bounce><restitution_coefficient>0</restitution_coefficient><threshold>0.01</threshold></bounce>
-                    </surface>
-                </collision>
-                <visual name="cork">
-                    <pose>0 0 0.013 0 0 0</pose>
-                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
-                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
-                </visual>
-                <visual name="skirt1">
-                    <pose>0 0 0.03188 0 0 0</pose>
-                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
-                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
-                </visual>
-                <visual name="skirt2">
-                    <pose>0 0 0.04563 0 0 0</pose>
-                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
-                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
-                </visual>
-                <visual name="skirt3">
-                    <pose>0 0 0.05938 0 0 0</pose>
-                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
-                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
-                </visual>
-                <visual name="skirt4">
-                    <pose>0 0 0.07313 0 0 0</pose>
-                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
-                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
-                </visual>
-            </link>
-        </model>
-
-        <model name="shuttlecock_7">
-            <static>false</static>
-            <pose>-3.5 -0.8 0 0 0 0</pose>
-            <link name="link">
-                <inertial>
-                    <mass>0.005</mass>
-                    <pose>0 0 0.04 0 0 0</pose>
-                    <inertia>
-                        <ixx>3.99e-06</ixx>
-                        <iyy>3.99e-06</iyy>
-                        <izz>2.64e-06</izz>
-                        <ixy>0</ixy><ixz>0</ixz><iyz>0</iyz>
-                    </inertia>
-                </inertial>
-                <collision name="collision">
-                    <pose>0 0 0.04 0 0 0</pose>
-                    <geometry><cylinder><radius>0.0325</radius><length>0.08</length></cylinder></geometry>
-                    <surface>
-                        <friction><ode><mu>1.0</mu><mu2>1.0</mu2></ode></friction>
-                        <bounce><restitution_coefficient>0</restitution_coefficient><threshold>0.01</threshold></bounce>
-                    </surface>
-                </collision>
-                <visual name="cork">
-                    <pose>0 0 0.013 0 0 0</pose>
-                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
-                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
-                </visual>
-                <visual name="skirt1">
-                    <pose>0 0 0.03188 0 0 0</pose>
-                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
-                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
-                </visual>
-                <visual name="skirt2">
-                    <pose>0 0 0.04563 0 0 0</pose>
-                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
-                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
-                </visual>
-                <visual name="skirt3">
-                    <pose>0 0 0.05938 0 0 0</pose>
-                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
-                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
-                </visual>
-                <visual name="skirt4">
-                    <pose>0 0 0.07313 0 0 0</pose>
-                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
-                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
-                </visual>
-            </link>
-        </model>
-
-        <model name="shuttlecock_8">
-            <static>false</static>
-            <pose>-4.5 1.2 0 0 0 0</pose>
-            <link name="link">
-                <inertial>
-                    <mass>0.005</mass>
-                    <pose>0 0 0.04 0 0 0</pose>
-                    <inertia>
-                        <ixx>3.99e-06</ixx>
-                        <iyy>3.99e-06</iyy>
-                        <izz>2.64e-06</izz>
-                        <ixy>0</ixy><ixz>0</ixz><iyz>0</iyz>
-                    </inertia>
-                </inertial>
-                <collision name="collision">
-                    <pose>0 0 0.04 0 0 0</pose>
-                    <geometry><cylinder><radius>0.0325</radius><length>0.08</length></cylinder></geometry>
-                    <surface>
-                        <friction><ode><mu>1.0</mu><mu2>1.0</mu2></ode></friction>
-                        <bounce><restitution_coefficient>0</restitution_coefficient><threshold>0.01</threshold></bounce>
-                    </surface>
-                </collision>
-                <visual name="cork">
-                    <pose>0 0 0.013 0 0 0</pose>
-                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
-                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
-                </visual>
-                <visual name="skirt1">
-                    <pose>0 0 0.03188 0 0 0</pose>
-                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
-                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
-                </visual>
-                <visual name="skirt2">
-                    <pose>0 0 0.04563 0 0 0</pose>
-                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
-                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
-                </visual>
-                <visual name="skirt3">
-                    <pose>0 0 0.05938 0 0 0</pose>
-                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
-                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
-                </visual>
-                <visual name="skirt4">
-                    <pose>0 0 0.07313 0 0 0</pose>
-                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
-                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
-                </visual>
-            </link>
-        </model>
-
-        <model name="shuttlecock_9">
-            <static>false</static>
-            <pose>-1.5 -1.5 0 0 0 0</pose>
-            <link name="link">
-                <inertial>
-                    <mass>0.005</mass>
-                    <pose>0 0 0.04 0 0 0</pose>
-                    <inertia>
-                        <ixx>3.99e-06</ixx>
-                        <iyy>3.99e-06</iyy>
-                        <izz>2.64e-06</izz>
-                        <ixy>0</ixy><ixz>0</ixz><iyz>0</iyz>
-                    </inertia>
-                </inertial>
-                <collision name="collision">
-                    <pose>0 0 0.04 0 0 0</pose>
-                    <geometry><cylinder><radius>0.0325</radius><length>0.08</length></cylinder></geometry>
-                    <surface>
-                        <friction><ode><mu>1.0</mu><mu2>1.0</mu2></ode></friction>
-                        <bounce><restitution_coefficient>0</restitution_coefficient><threshold>0.01</threshold></bounce>
-                    </surface>
-                </collision>
-                <visual name="cork">
-                    <pose>0 0 0.013 0 0 0</pose>
-                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
-                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
-                </visual>
-                <visual name="skirt1">
-                    <pose>0 0 0.03188 0 0 0</pose>
-                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
-                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
-                </visual>
-                <visual name="skirt2">
-                    <pose>0 0 0.04563 0 0 0</pose>
-                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
-                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
-                </visual>
-                <visual name="skirt3">
-                    <pose>0 0 0.05938 0 0 0</pose>
-                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
-                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
-                </visual>
-                <visual name="skirt4">
-                    <pose>0 0 0.07313 0 0 0</pose>
-                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
-                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
-                </visual>
-            </link>
-        </model>
-
-        <model name="shuttlecock_10">
-            <static>false</static>
-            <pose>-5.5 -0.3 0 0 0 0</pose>
-            <link name="link">
-                <inertial>
-                    <mass>0.005</mass>
-                    <pose>0 0 0.04 0 0 0</pose>
-                    <inertia>
-                        <ixx>3.99e-06</ixx>
-                        <iyy>3.99e-06</iyy>
-                        <izz>2.64e-06</izz>
-                        <ixy>0</ixy><ixz>0</ixz><iyz>0</iyz>
-                    </inertia>
-                </inertial>
-                <collision name="collision">
-                    <pose>0 0 0.04 0 0 0</pose>
-                    <geometry><cylinder><radius>0.0325</radius><length>0.08</length></cylinder></geometry>
-                    <surface>
-                        <friction><ode><mu>1.0</mu><mu2>1.0</mu2></ode></friction>
-                        <bounce><restitution_coefficient>0</restitution_coefficient><threshold>0.01</threshold></bounce>
-                    </surface>
-                </collision>
-                <visual name="cork">
-                    <pose>0 0 0.013 0 0 0</pose>
-                    <geometry><sphere><radius>0.013</radius></sphere></geometry>
-                    <material><diffuse>0.4 0.2 0.1 1</diffuse></material>
-                </visual>
-                <visual name="skirt1">
-                    <pose>0 0 0.03188 0 0 0</pose>
-                    <geometry><cylinder><radius>0.016</radius><length>0.01375</length></cylinder></geometry>
-                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
-                </visual>
-                <visual name="skirt2">
-                    <pose>0 0 0.04563 0 0 0</pose>
-                    <geometry><cylinder><radius>0.0215</radius><length>0.01375</length></cylinder></geometry>
-                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
-                </visual>
-                <visual name="skirt3">
-                    <pose>0 0 0.05938 0 0 0</pose>
-                    <geometry><cylinder><radius>0.027</radius><length>0.01375</length></cylinder></geometry>
-                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
-                </visual>
-                <visual name="skirt4">
-                    <pose>0 0 0.07313 0 0 0</pose>
-                    <geometry><cylinder><radius>0.0325</radius><length>0.01375</length></cylinder></geometry>
-                    <material><diffuse>1.0 0.4 0.0 1</diffuse><emissive>1.0 0.4 0.0 1</emissive></material>
-                </visual>
-            </link>
-        </model>
-
 
         <!-- Drop-off zones: collected shuttlecocks are deposited at the nearest corner -->
         <model name="dropoff_zone_ne">
@@ -932,47 +533,6 @@
             </link>
         </model>
 
-        <model name="dropoff_zone_se">
-            <static>true</static>
-            <pose>7.3 -4.3 0.002 0 0 0</pose>
-            <link name="link">
-                <visual name="visual">
-                    <geometry><box><size>1.2 1.2 0.004</size></box></geometry>
-                    <material>
-                        <diffuse>0.1 0.3 1.0 1</diffuse>
-                        <emissive>0.1 0.3 1.0 1</emissive>
-                    </material>
-                </visual>
-            </link>
-        </model>
-
-        <model name="dropoff_zone_nw">
-            <static>true</static>
-            <pose>-7.3 4.3 0.002 0 0 0</pose>
-            <link name="link">
-                <visual name="visual">
-                    <geometry><box><size>1.2 1.2 0.004</size></box></geometry>
-                    <material>
-                        <diffuse>0.1 0.3 1.0 1</diffuse>
-                        <emissive>0.1 0.3 1.0 1</emissive>
-                    </material>
-                </visual>
-            </link>
-        </model>
-
-        <model name="dropoff_zone_sw">
-            <static>true</static>
-            <pose>-7.3 -4.3 0.002 0 0 0</pose>
-            <link name="link">
-                <visual name="visual">
-                    <geometry><box><size>1.2 1.2 0.004</size></box></geometry>
-                    <material>
-                        <diffuse>0.1 0.3 1.0 1</diffuse>
-                        <emissive>0.1 0.3 1.0 1</emissive>
-                    </material>
-                </visual>
-            </link>
-        </model>
 
 
         <!-- Passive scoop + hopper bin: repositioned every cycle by
