@@ -11,7 +11,7 @@ from rclpy.time import Time
 from sensor_msgs.msg import Image, CameraInfo
 from vision_msgs.msg import Detection2DArray
 from geometry_msgs.msg import PointStamped
-from nav2_msgs.action import NavigateToPose
+from nav2_msgs.action import NavigateToPose, Spin
 from std_msgs.msg import Int32
 
 from cv_bridge import CvBridge
@@ -25,8 +25,8 @@ MAX_DEPTH = 5.0          # m
 GOAL_UPDATE_DIST = 0.3   # m — ignore new target if within this of current goal
 DETECTION_TIMEOUT = 1.0  # s
 
-BATCH_SIZE = 5    # shuttlecocks to collect before heading to a gather point
-TOTAL_TARGET = 10  # stop after this many have been deposited (scoop demo: 2 batches of 5)
+BATCH_SIZE = 3    # shuttlecocks to collect before heading to a gather point
+TOTAL_TARGET = 3  # stop after this many have been deposited (demo: single collect-and-deposit run)
 
 # Ignore detections near gather points - these are already-deposited
 # shuttlecocks, not new ones to collect.
@@ -36,24 +36,25 @@ GATHER_EXCLUSION_RADIUS = 1.0  # m
 # radius - if a real shuttlecock were there, it would already be collected,
 # so this is a false detection (e.g. robot's own body) that would otherwise
 # cause an instant "reached" / re-send loop.
-SELF_DETECTION_RADIUS = 0.8  # m
+SELF_DETECTION_RADIUS = 0.35  # m
+
+# Ignore targets outside the court walls (walls at x=+-8, y=+-5) - these are
+# false detections (e.g. depth noise off a wall) that nav2 can never reach,
+# which would otherwise cause an infinite send/abort loop.
+COURT_X_LIMIT = 7.5  # m
+COURT_Y_LIMIT = 4.5  # m
 
 # If this many consecutive cycles produce no usable target (e.g. only the
 # robot's own body is in view), head back to the search anchor for a fresh
 # vantage point instead of sitting idle indefinitely.
 NO_TARGET_RECOVERY_CYCLES = 5
 
-# After a dropoff, head back here so the camera faces the field again
-# instead of the just-deposited pile at the corner.
-SEARCH_ANCHOR = (1.0, 0.0)
+SPIN_ANGLE = 1.0  # rad (~57 deg) per recovery spin cycle
 
 # Gather/drop-off points — one at each corner of the court. Must match
 # shuttlecock_collector.GATHER_POINTS. The robot heads to whichever is nearest.
 GATHER_POINTS = [
-    (7.3, 4.3),    # NE corner
-    (7.3, -4.3),   # SE corner
-    (-7.3, 4.3),   # NW corner
-    (-7.3, -4.3),  # SW corner
+    (7.3, 4.3),    # NE corner — single deposit zone for demo
 ]
 
 
@@ -70,7 +71,9 @@ class ShuttlecockSeeker(Node):
         self.tf_listener = tf2_ros.TransformListener(self.tf_buffer, self)
 
         self.nav_client = ActionClient(self, NavigateToPose, '/navigate_to_pose')
+        self.spin_client = ActionClient(self, Spin, '/spin')
         self.goal_handle = None
+        self.spin_in_progress = False
         self.current_target = None  # (x, y) in map frame
         self.heading_to_dropoff = False
 
@@ -124,12 +127,13 @@ class ShuttlecockSeeker(Node):
         return float(np.min(valid))
 
     def control_loop(self):
-        if self.goal_handle is not None:
-            return  # navigation already in progress
+        if self.goal_handle is not None or self.spin_in_progress:
+            return  # navigation or recovery spin already in progress
 
         if self.returning_to_search:
             self.returning_to_search = False
-            self.send_goal(SEARCH_ANCHOR)
+            self.no_target_count = 0
+            self.send_spin(SPIN_ANGLE)
             return
 
         if self.deposited_count >= TOTAL_TARGET:
@@ -155,12 +159,18 @@ class ShuttlecockSeeker(Node):
                 gather_point = self.nearest_gather_point()
                 if gather_point is not None:
                     self.send_goal(gather_point, is_dropoff=True)
+            else:
+                # Nothing in view at all (not just an unusable detection) -
+                # still count toward the search-anchor recovery, otherwise
+                # the seeker idles forever if no shuttlecock is ever visible
+                # from the current vantage point.
+                self.no_target_recovery()
             return
 
         robot_xy = None
         try:
             robot_tf = self.tf_buffer.lookup_transform(
-                'map', 'base_link', Time(), timeout=Duration(seconds=0.5))
+                'map', 'base_link', Time(), timeout=Duration(seconds=2.0))
             robot_xy = (robot_tf.transform.translation.x, robot_tf.transform.translation.y)
         except tf2_ros.TransformException:
             pass
@@ -188,12 +198,15 @@ class ShuttlecockSeeker(Node):
 
             try:
                 point_map = self.tf_buffer.transform(
-                    point_cam, 'map', timeout=Duration(seconds=0.5))
+                    point_cam, 'map', timeout=Duration(seconds=2.0))
             except tf2_ros.TransformException as e:
                 self.get_logger().warn(f'TF transform failed: {e}', throttle_duration_sec=2.0)
                 continue
 
             candidate = (point_map.point.x, point_map.point.y)
+
+            if abs(candidate[0]) > COURT_X_LIMIT or abs(candidate[1]) > COURT_Y_LIMIT:
+                continue  # outside the court walls - unreachable false detection
 
             if any(math.hypot(candidate[0] - gx, candidate[1] - gy) < GATHER_EXCLUSION_RADIUS
                    for gx, gy in GATHER_POINTS):
@@ -207,11 +220,7 @@ class ShuttlecockSeeker(Node):
             break
 
         if target is None:
-            self.no_target_count += 1
-            if self.no_target_count >= NO_TARGET_RECOVERY_CYCLES:
-                self.no_target_count = 0
-                self.get_logger().info('No usable target in view - returning to search anchor')
-                self.send_goal(SEARCH_ANCHOR)
+            self.no_target_recovery()
             return
 
         self.no_target_count = 0
@@ -224,10 +233,41 @@ class ShuttlecockSeeker(Node):
 
         self.send_goal(target)
 
+    def no_target_recovery(self):
+        self.no_target_count += 1
+        if self.no_target_count >= NO_TARGET_RECOVERY_CYCLES:
+            self.no_target_count = 0
+            self.get_logger().info('No usable target in view - spinning to scan for shuttlecocks')
+            self.send_spin(SPIN_ANGLE)
+
+    def send_spin(self, angle):
+        if not self.spin_client.server_is_ready():
+            self.get_logger().warn('Spin server not ready', throttle_duration_sec=5.0)
+            return
+        goal_msg = Spin.Goal()
+        goal_msg.target_yaw = angle
+        self.spin_in_progress = True
+        send_future = self.spin_client.send_goal_async(goal_msg)
+        send_future.add_done_callback(self.spin_response_callback)
+
+    def spin_response_callback(self, future):
+        goal_handle = future.result()
+        if not goal_handle.accepted:
+            self.get_logger().warn('Spin goal rejected')
+            self.spin_in_progress = False
+            return
+        result_future = goal_handle.get_result_async()
+        result_future.add_done_callback(self.spin_result_callback)
+
+    def spin_result_callback(self, future):
+        result = future.result()
+        self.get_logger().info(f'Spin finished with status: {result.status}')
+        self.spin_in_progress = False
+
     def nearest_gather_point(self):
         try:
             t = self.tf_buffer.lookup_transform(
-                'map', 'base_link', Time(), timeout=Duration(seconds=0.5))
+                'map', 'base_link', Time(), timeout=Duration(seconds=2.0))
         except tf2_ros.TransformException as e:
             self.get_logger().warn(f'TF transform failed: {e}', throttle_duration_sec=2.0)
             return None
