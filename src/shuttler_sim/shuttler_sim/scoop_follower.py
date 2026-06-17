@@ -13,9 +13,7 @@ import tf2_ros
 from shuttler_sim.shuttlecock_collector import (
     WORLD_NAME, SCOOP_OFFSET, HOPPER_OFFSET, yaw_from_quaternion)
 
-UPDATE_PERIOD = 0.2  # s (5 Hz) - each set_pose call runs in a daemon thread
-# so subprocess latency doesn't block the timer; two outstanding threads per
-# cycle at most (one per entity).
+UPDATE_PERIOD = 1.0  # s (1 Hz) - slower to avoid overloading ign service
 
 
 def set_pose(name, x, y, z, yaw):
@@ -43,10 +41,13 @@ class ScoopFollower(Node):
         super().__init__('scoop_follower')
         self.tf_buffer = tf2_ros.Buffer()
         self.tf_listener = tf2_ros.TransformListener(self.tf_buffer, self)
+        self._busy = False
         self.create_timer(UPDATE_PERIOD, self.update)
         self.get_logger().info('Scoop follower started')
 
     def update(self):
+        if self._busy:
+            return
         try:
             tf = self.tf_buffer.lookup_transform(
                 'map', 'base_link', Time(), timeout=Duration(seconds=2.0))
@@ -56,13 +57,17 @@ class ScoopFollower(Node):
         rx, ry = tf.transform.translation.x, tf.transform.translation.y
         cos_y, sin_y = math.cos(yaw), math.sin(yaw)
 
-        for name, (dx, dy, dz) in (('scoop_assembly', SCOOP_OFFSET),
-                                    ('hopper_bin', HOPPER_OFFSET)):
-            wx = rx + dx * cos_y - dy * sin_y
-            wy = ry + dx * sin_y + dy * cos_y
-            threading.Thread(
-                target=set_pose, args=(name, wx, wy, dz, yaw), daemon=True
-            ).start()
+        self._busy = True
+
+        def _do_updates():
+            for name, (dx, dy, dz) in (('scoop_assembly', SCOOP_OFFSET),
+                                        ('hopper_bin', HOPPER_OFFSET)):
+                wx = rx + dx * cos_y - dy * sin_y
+                wy = ry + dx * sin_y + dy * cos_y
+                set_pose(name, wx, wy, dz, yaw)
+            self._busy = False
+
+        threading.Thread(target=_do_updates, daemon=True).start()
 
 
 def main(args=None):

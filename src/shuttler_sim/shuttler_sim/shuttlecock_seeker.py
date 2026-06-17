@@ -50,6 +50,14 @@ COURT_Y_LIMIT = 4.5  # m
 NO_TARGET_RECOVERY_CYCLES = 5
 
 SPIN_ANGLE = 1.0  # rad (~57 deg) per recovery spin cycle
+MAX_SPINS_BEFORE_RELOCATE = 3
+
+SEARCH_POINTS = [
+    (3.0, 0.5),
+    (5.0, 0.5),
+    (4.0, 1.5),
+    (2.0, -1.0),
+]
 
 # Gather/drop-off points — one at each corner of the court. Must match
 # shuttlecock_collector.GATHER_POINTS. The robot heads to whichever is nearest.
@@ -82,6 +90,8 @@ class ShuttlecockSeeker(Node):
         self.target_reached_logged = False
         self.returning_to_search = False
         self.no_target_count = 0
+        self.spin_count = 0
+        self.search_point_index = 0
 
         self.create_subscription(
             CameraInfo, '/camera/camera_info', self.camera_info_callback, 10)
@@ -156,6 +166,9 @@ class ShuttlecockSeeker(Node):
         stale = (self.get_clock().now() - self.last_detections_time) > Duration(seconds=DETECTION_TIMEOUT)
         if stale or self.last_detections is None or not self.last_detections.detections:
             if onboard > 0:
+                self.get_logger().info(
+                    f'No more shuttlecocks visible with {onboard} onboard '
+                    f'(batch target {BATCH_SIZE}) - depositing what we have first')
                 gather_point = self.nearest_gather_point()
                 if gather_point is not None:
                     self.send_goal(gather_point, is_dropoff=True)
@@ -224,6 +237,7 @@ class ShuttlecockSeeker(Node):
             return
 
         self.no_target_count = 0
+        self.spin_count = 0
 
         if self.current_target is not None:
             d = math.hypot(target[0] - self.current_target[0],
@@ -235,10 +249,25 @@ class ShuttlecockSeeker(Node):
 
     def no_target_recovery(self):
         self.no_target_count += 1
-        if self.no_target_count >= NO_TARGET_RECOVERY_CYCLES:
-            self.no_target_count = 0
-            self.get_logger().info('No usable target in view - spinning to scan for shuttlecocks')
+        if self.no_target_count < NO_TARGET_RECOVERY_CYCLES:
+            return
+
+        self.no_target_count = 0
+        self.spin_count += 1
+
+        if self.spin_count <= MAX_SPINS_BEFORE_RELOCATE:
+            self.get_logger().info(
+                f'No usable target in view - spinning to scan '
+                f'({self.spin_count}/{MAX_SPINS_BEFORE_RELOCATE} before relocating)')
             self.send_spin(SPIN_ANGLE)
+        else:
+            point = SEARCH_POINTS[self.search_point_index % len(SEARCH_POINTS)]
+            self.search_point_index += 1
+            self.spin_count = 0
+            self.get_logger().info(
+                f'Still no target after {MAX_SPINS_BEFORE_RELOCATE} spins - '
+                f'relocating to search point ({point[0]:.1f}, {point[1]:.1f})')
+            self.send_goal(point)
 
     def send_spin(self, angle):
         if not self.spin_client.server_is_ready():
