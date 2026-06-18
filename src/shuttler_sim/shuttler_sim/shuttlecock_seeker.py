@@ -54,8 +54,8 @@ MAX_SPINS_BEFORE_RELOCATE = 3
 
 SEARCH_POINTS = [
     (3.0, 0.5),
-    (5.0, 0.5),
     (4.0, 1.5),
+    (5.5, 2.5),
     (2.0, -1.0),
 ]
 

@@ -457,7 +457,7 @@
         </model>
         <model name="shuttlecock_3">
             <static>true</static>
-            <pose>5.5 0.3 0 0 0 0</pose>
+            <pose>6.0 3.0 0 0 0 0</pose>
             <link name="link">
                 <visual name="cork">
                     <pose>0 0 0.013 0 0 0</pose>

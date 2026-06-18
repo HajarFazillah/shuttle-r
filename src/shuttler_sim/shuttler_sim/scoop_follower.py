@@ -6,11 +6,13 @@ import threading
 
 import rclpy
 from rclpy.node import Node
+from geometry_msgs.msg import PoseWithCovarianceStamped
 
 from shuttler_sim.shuttlecock_collector import (
     WORLD_NAME, SCOOP_OFFSET, HOPPER_OFFSET)
 
 UPDATE_PERIOD = 1.0
+AMCL_RESEED_INTERVAL = 5
 
 
 def set_pose(name, x, y, z, yaw):
@@ -52,6 +54,9 @@ class ScoopFollower(Node):
     def __init__(self):
         super().__init__('scoop_follower')
         self._busy = False
+        self._reseed_counter = 0
+        self._initialpose_pub = self.create_publisher(
+            PoseWithCovarianceStamped, '/initialpose', 10)
         self.create_timer(UPDATE_PERIOD, self.update)
         self.get_logger().info('Scoop follower started')
 
@@ -63,6 +68,20 @@ class ScoopFollower(Node):
             return
         rx, ry, yaw = pose
         cos_y, sin_y = math.cos(yaw), math.sin(yaw)
+
+        self._reseed_counter += 1
+        if self._reseed_counter >= AMCL_RESEED_INTERVAL:
+            self._reseed_counter = 0
+            msg = PoseWithCovarianceStamped()
+            msg.header.frame_id = 'map'
+            msg.header.stamp = self.get_clock().now().to_msg()
+            msg.pose.pose.position.x = rx
+            msg.pose.pose.position.y = ry
+            qz = math.sin(yaw / 2.0)
+            qw = math.cos(yaw / 2.0)
+            msg.pose.pose.orientation.z = qz
+            msg.pose.pose.orientation.w = qw
+            self._initialpose_pub.publish(msg)
 
         self._busy = True
 

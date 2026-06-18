@@ -59,7 +59,7 @@ GATHER_POINTS = [
 # court or the net.
 SHUTTLECOCKS = {
     'shuttlecock_1': (3.0, 0.8),
-    'shuttlecock_3': (5.5, 0.3),
+    'shuttlecock_3': (6.0, 3.0),
     'shuttlecock_5': (4.0, 1.5),
 }
 
@@ -161,7 +161,7 @@ class ShuttlecockCollector(Node):
     def check_dropoff(self):
         if not self.onboard:
             return
-        robot_pose = self.get_robot_pose()
+        robot_pose = get_gazebo_pose()
         if robot_pose is None:
             return
 
@@ -172,7 +172,9 @@ class ShuttlecockCollector(Node):
                 return
 
     def collect(self, name):
-        robot_pose = self.get_robot_pose()
+        robot_pose = get_gazebo_pose()
+        if robot_pose is None:
+            return
         rx, ry, yaw = robot_pose
         x, y, z = self.hopper_slot_position(rx, ry, yaw, len(self.onboard))
         ok, result = self.teleport(name, x, y, z)
@@ -194,10 +196,9 @@ class ShuttlecockCollector(Node):
             self.get_logger().info('All shuttlecocks collected!')
 
     def track_onboard(self):
-        """Keep onboard shuttlecocks riding in the hopper as the robot moves."""
         if not self.onboard:
             return
-        robot_pose = self.get_robot_pose()
+        robot_pose = get_gazebo_pose()
         if robot_pose is None:
             return
 
