@@ -40,9 +40,13 @@ def generate_launch_description():
     )
 
     # Launch Gazebo Fortress with the badminton court world
-    ignition_gazebo = ExecuteProcess(
-        cmd=['ign', 'gazebo', world_path, '-r', '-s', '--verbose', '0'],
-        output='log',
+    ignition_gazebo = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(pkg_ros_ign_gazebo, 'launch', 'ign_gazebo.launch.py')
+        ),
+        launch_arguments={
+            'ign_args': world_path + ' -r -s'
+        }.items()
     )
 
     # Clock bridge (sim time -> ROS time)

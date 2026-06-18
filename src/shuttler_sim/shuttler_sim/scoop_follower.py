@@ -1,19 +1,16 @@
 #!/usr/bin/env python3
 import math
+import re
 import subprocess
 import threading
 
 import rclpy
 from rclpy.node import Node
-from rclpy.duration import Duration
-from rclpy.time import Time
-
-import tf2_ros
 
 from shuttler_sim.shuttlecock_collector import (
-    WORLD_NAME, SCOOP_OFFSET, HOPPER_OFFSET, yaw_from_quaternion)
+    WORLD_NAME, SCOOP_OFFSET, HOPPER_OFFSET)
 
-UPDATE_PERIOD = 1.0  # s (1 Hz) - slower to avoid overloading ign service
+UPDATE_PERIOD = 1.0
 
 
 def set_pose(name, x, y, z, yaw):
@@ -32,15 +29,28 @@ def set_pose(name, x, y, z, yaw):
     )
 
 
+def get_gazebo_pose():
+    try:
+        result = subprocess.run(
+            ['ign', 'model', '-m', 'turtlebot4', '-p'],
+            capture_output=True, text=True, timeout=5,
+        )
+    except subprocess.TimeoutExpired:
+        return None
+    match = re.search(
+        r'\[(-?[\d.]+)\s+(-?[\d.]+)\s+(-?[\d.]+)\]\s*\n\s*\[(-?[\d.]+)\s+(-?[\d.]+)\s+(-?[\d.]+)\]',
+        result.stdout)
+    if not match:
+        return None
+    x, y = float(match.group(1)), float(match.group(2))
+    yaw = float(match.group(6))
+    return (x, y, yaw)
+
+
 class ScoopFollower(Node):
-    """Keeps the scoop_assembly and hopper_bin models rigidly attached to
-    the robot by teleporting them to robot_pose + a fixed local offset every
-    cycle. Passive - no joints involved."""
 
     def __init__(self):
         super().__init__('scoop_follower')
-        self.tf_buffer = tf2_ros.Buffer()
-        self.tf_listener = tf2_ros.TransformListener(self.tf_buffer, self)
         self._busy = False
         self.create_timer(UPDATE_PERIOD, self.update)
         self.get_logger().info('Scoop follower started')
@@ -48,13 +58,10 @@ class ScoopFollower(Node):
     def update(self):
         if self._busy:
             return
-        try:
-            tf = self.tf_buffer.lookup_transform(
-                'map', 'base_link', Time(), timeout=Duration(seconds=2.0))
-        except tf2_ros.TransformException:
+        pose = get_gazebo_pose()
+        if pose is None:
             return
-        yaw = yaw_from_quaternion(tf.transform.rotation)
-        rx, ry = tf.transform.translation.x, tf.transform.translation.y
+        rx, ry, yaw = pose
         cos_y, sin_y = math.cos(yaw), math.sin(yaw)
 
         self._busy = True

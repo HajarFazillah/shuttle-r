@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import math
+import re
 import subprocess
 
 import rclpy
@@ -61,6 +62,24 @@ SHUTTLECOCKS = {
     'shuttlecock_3': (5.5, 0.3),
     'shuttlecock_5': (4.0, 1.5),
 }
+
+
+def get_gazebo_pose():
+    try:
+        result = subprocess.run(
+            ['ign', 'model', '-m', 'turtlebot4', '-p'],
+            capture_output=True, text=True, timeout=5,
+        )
+    except subprocess.TimeoutExpired:
+        return None
+    match = re.search(
+        r'\[(-?[\d.]+)\s+(-?[\d.]+)\s+(-?[\d.]+)\]\s*\n\s*\[(-?[\d.]+)\s+(-?[\d.]+)\s+(-?[\d.]+)\]',
+        result.stdout)
+    if not match:
+        return None
+    x, y = float(match.group(1)), float(match.group(2))
+    yaw = float(match.group(6))
+    return (x, y, yaw)
 
 
 def yaw_from_quaternion(q):
@@ -127,11 +146,11 @@ class ShuttlecockCollector(Node):
         return wx, wy, hz + HOPPER_SLOT_Z
 
     def check_collection(self):
-        robot_pose = self.get_robot_pose()
-        if robot_pose is None:
+        gz_pose = get_gazebo_pose()
+        if gz_pose is None:
             return
 
-        rx, ry, yaw = robot_pose
+        rx, ry, yaw = gz_pose
         scoop_x, scoop_y = self.scoop_position(rx, ry, yaw)
         for name, (sx, sy) in SHUTTLECOCKS.items():
             if name in self.collected:
