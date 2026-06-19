@@ -1,4 +1,41 @@
-# Shuttle-R: Autonomous Shuttlecock Collection Robot
+# [26-1 Intelligent Robotics, Prof. Song Da-eun] (Final Project) Shuttle-R: Autonomous Shuttlecock Collection Robot
+
+## Team
+
+| Name | Department / Student ID |
+| --- | --- |
+| Siti Hajar Asyiqin Binti Fazillah | 소프트웨어학부 컴퓨터공학전공 / 2371004 |
+
+This is an individual project (1 person) - role division is not applicable.
+
+## Links
+
+- **YouTube (Presentation Demo, Unlisted):** https://youtu.be/R4c_BBfqKxI
+- **GitHub:** https://github.com/HajarFazillah/shuttle-r
+- **README (Korean / 한국어 버전, main):** [README.md](./README.md)
+
+## AI Usage
+
+Claude Code was used throughout development, primarily as a debugging and learning aid rather than as the primary author of the project:
+
+- **Debugging**: Used extensively to interpret terminal error logs (e.g. DDS/FastRTPS discovery failures, TF lookup errors, AMCL pose issues) and identify root causes during integration testing.
+- **Parameter fine-tuning**: Helped tune Nav2 parameters (goal tolerances, costmap settings) to resolve issues like final-approach oscillation and "No valid trajectories" errors.
+- **Node implementation guidance**: The overall system architecture, node structure, and design decisions (e.g. how detection, seeking, and collection nodes should coordinate) were planned by me. Since this was my first time building a full ROS2 project, AI was used as a guide for translating concepts learned in class (topics, tf2, services) into actual working node code - not as a full auto-generator.
+- **Documentation**: Partial assistance with structuring and refining this README.
+
+In short: the project structure, design, and integration decisions are my own; AI assistance was concentrated on debugging, parameter tuning, and helping implement node code based on what I learned in class.
+
+## References
+
+1. **[Nav2] Navigating with ROS2** - https://docs.nav2.org/
+2. **[YOLO]** Cao, Z. et al. (2021). *Detecting the shuttlecock for a badminton robot: A YOLO based approach*. Expert Systems with Applications. https://www.sciencedirect.com/science/article/abs/pii/S0957417420306436
+3. **[Dataset]** Roboflow Shuttlecock Detection Dataset - https://universe.roboflow.com/computervision-ach8c/shuttlecock-rzwox
+4. **[Reference Robot]** Acme Robotics, Mobile Autonomous Robot (MARIO-COM) - https://github.com/bharadwaj-chukkala/MARIO-COM
+5. **[YO-CSA-T]** Real-time Badminton Tracking System (YOLOv8-based, 2025) - https://arxiv.org/abs/2501.06472
+
+---
+
+# Shuttle-R
 
 Shuttle-R is a robotics project: an autonomous robot that detects, collects,
 and returns badminton shuttlecocks scattered across a court, simulated in
